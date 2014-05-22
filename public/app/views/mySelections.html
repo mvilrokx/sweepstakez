@@ -1,0 +1,31 @@
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="page-header">
+        <h1>My Selection <small>Manage my selection.</small></h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div ng-controller="GroupsCtrl" class="col-lg-4">
+      <div ng-repeat="(key, group) in groups track by key">
+        <span class="group-header">Group {{key}}</span>
+        <ul class="group-list list-unstyled">
+          <li class="group-list-item" ora-draggable="" data-name="{{team}}" ng-repeat="team in group">{{team | uppercase}}</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-lg-8">
+      <ol class="my-selection-list">
+        <li class="my-selection-list-item" ng-class="{'my-selection-list-item-empty':!selection.name}" ora-draggable="" ora-drop-target="" on-drop="dropped(dragEl, dropEl)" data-name="{{selection.name}}" ng-repeat="selection in mySelections track by $index">
+          {{selection.name}}
+        </li>
+      </ol>
+    </div>
+  </div>
+
+</div>
+
