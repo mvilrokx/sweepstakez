@@ -1,5 +1,7 @@
 source 'http://rubygems.org'
 
+ruby '2.1.2'
+
 gem 'json', '1.7.7'
 gem 'rest-client', '1.6.7'
 gem 'sinatra', '1.4.5'
