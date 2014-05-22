@@ -1,7 +1,3 @@
-$:<<::File.dirname(__FILE__)
+require './app'
 
-require 'app'
-
-map "/" do
-  run App
-end
+run Sweepstakes::App
