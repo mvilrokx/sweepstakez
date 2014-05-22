@@ -33,7 +33,7 @@ class App < Sinatra::Base
     { message: 'Hello World!' }.to_json
   end
 
-  get '/' do
+  get '/*' do
     send_file File.join(settings.public_folder, 'index.html')
   end
 
