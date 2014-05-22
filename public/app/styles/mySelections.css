@@ -1,23 +1,23 @@
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mvilrokx\/Projects\/Angular\/sweepstakes\/public\/app\/styles\/mySelections\.scss}line{font-family:\000034}}
+/* line 4, mySelections.scss */
 [draggable] {
   cursor: -webkit-grab;
   cursor: -moz-grab;
   cursor: grab;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mvilrokx\/Projects\/Angular\/sweepstakes\/public\/app\/styles\/mySelections\.scss}line{font-family:\0000310}}
+/* line 10, mySelections.scss */
 [draggable]:active {
   cursor: -webkit-grabbing;
   cursor: -moz-grabbing;
   cursor: grabbing;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mvilrokx\/Projects\/Angular\/sweepstakes\/public\/app\/styles\/mySelections\.scss}line{font-family:\0000316}}
+/* line 16, mySelections.scss */
 .my-selection-list {
   font-size: 1.5em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mvilrokx\/Projects\/Angular\/sweepstakes\/public\/app\/styles\/mySelections\.scss}line{font-family:\0000320}}
+/* line 20, mySelections.scss */
 .my-selection-list-item {
   padding: 10px;
   margin: 10px;
@@ -30,42 +30,42 @@
   border: 2px solid #449d44;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mvilrokx\/Projects\/Angular\/sweepstakes\/public\/app\/styles\/mySelections\.scss}line{font-family:\0000329}}
+/* line 29, mySelections.scss */
 .my-selection-list-item-empty {
   background: #f9f9f9;
   border: 2px dashed transparent;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mvilrokx\/Projects\/Angular\/sweepstakes\/public\/app\/styles\/mySelections\.scss}line{font-family:\0000335}}
+/* line 35, mySelections.scss */
 .ora-drag-start {
   opacity: .5;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mvilrokx\/Projects\/Angular\/sweepstakes\/public\/app\/styles\/mySelections\.scss}line{font-family:\0000340}}
+/* line 40, mySelections.scss */
 .ora-target.ora-drag-enter.my-selection-list-item-empty {
   background: #ccc;
   border: 2px inset #aaa;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mvilrokx\/Projects\/Angular\/sweepstakes\/public\/app\/styles\/mySelections\.scss}line{font-family:\0000346}}
+/* line 46, mySelections.scss */
 .ora-target.ora-drag-enter:not(.my-selection-list-item-empty) {
   opacity: .9;
   border: 2px inset #449d44;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mvilrokx\/Projects\/Angular\/sweepstakes\/public\/app\/styles\/mySelections\.scss}line{font-family:\0000352}}
+/* line 52, mySelections.scss */
 .ora-target.my-selection-list-item-empty {
   background: #eee;
   border: 2px dashed #aaa;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mvilrokx\/Projects\/Angular\/sweepstakes\/public\/app\/styles\/mySelections\.scss}line{font-family:\0000358}}
+/* line 58, mySelections.scss */
 .ora-target:not(.my-selection-list-item-empty) {
   opacity: .8;
   border: 2px dashed #449d44;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mvilrokx\/Projects\/Angular\/sweepstakes\/public\/app\/styles\/mySelections\.scss}line{font-family:\0000363}}
+/* line 63, mySelections.scss */
 .group-header {
   width: 100%;
   display: block;
