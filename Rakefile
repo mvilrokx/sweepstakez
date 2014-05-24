@@ -38,6 +38,14 @@ namespace :db do
     `sequel -d #{database.url} > db/schema.rb`
     `pg_dump --schema-only #{database.url} > db/schema.sql`
   end
+
+  desc 'Load the seed data from db/seeds.rb'
+  task :seed do
+    seed_file = "./db/seeds.rb"
+    puts "Seeding database from: #{seed_file}"
+    load(seed_file) if File.exist?(seed_file)
+  end
+
 end
 
 Dir[File.dirname(__FILE__) + "/lib/tasks/*.rb"].sort.each do |path|

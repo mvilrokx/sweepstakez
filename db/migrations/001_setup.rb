@@ -4,6 +4,7 @@
 
 Sequel.migration do
   change do
+    # This statement breaks the automatic rollback (reverse migration)
     run %{
       CREATE EXTENSION IF NOT EXISTS "uuid-ossp" WITH SCHEMA public;
     }
@@ -19,10 +20,24 @@ Sequel.migration do
       column :created_at, "timestamp without time zone"
       column :updated_at, "timestamp without time zone"
 
-      primary_key :id
+      primary_key [:id]
 
       index :name
       index :iid, :unique=>true
+    end
+
+    create_table(:groups) do
+      column :id, "uuid", :default=>Sequel::LiteralString.new("uuid_generate_v4()"), :null=>false
+      column :iid, :serial, :null=>false
+      column :name, "text"
+      foreign_key :tournament_id, :tournaments, :type=>"uuid", :key => [:id]
+      column :created_at, "timestamp without time zone"
+      column :updated_at, "timestamp without time zone"
+
+      primary_key [:id]
+
+      index :iid, :unique=>true
+      index :tournament_id
     end
 
     # create_table(:users) do

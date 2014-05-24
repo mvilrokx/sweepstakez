@@ -5,6 +5,7 @@ end
 namespace :release do
   task :migrate do
     `heroku run rake db:migrate`
+    `heroku run rake db:seed`
   end
 end
 
