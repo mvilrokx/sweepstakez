@@ -4,9 +4,9 @@
 
 Sequel.migration do
   change do
-    # run %{
-    #   CREATE EXTENSION IF NOT EXISTS "uuid-ossp" WITH SCHEMA public;
-    # }
+    run %{
+      CREATE EXTENSION IF NOT EXISTS "uuid-ossp" WITH SCHEMA public;
+    }
 
     create_table(:tournaments) do
       column :id, "uuid", :default=>Sequel::LiteralString.new("uuid_generate_v4()"), :null=>false
