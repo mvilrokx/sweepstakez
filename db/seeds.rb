@@ -9,6 +9,7 @@ tz = TZInfo::Timezone.get('America/Sao_Paulo')
 # Clean Up
 Group.where('created_at < ?', Time.now).delete if Group.all.count > 0
 Tournament.where('created_at < ?', Time.now).delete if Tournament.all.count > 0
+Country.where('created_at < ?', Time.now).delete if Country.all.count > 0
 
 tourny = Tournament.insert(
   :name => '2014 FIFA WORLD CUP',
@@ -27,4 +28,7 @@ tourny = Tournament.insert(
     :created_at => timestamp,
     :updated_at => timestamp
   )
+
+  #Populate all countries from http://api.geonames.org/countryInfo?username=demo
+
 end

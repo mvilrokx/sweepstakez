@@ -40,6 +40,39 @@ Sequel.migration do
       index :tournament_id
     end
 
+    create_table(:countries) do
+      column :id, "uuid", :default=>Sequel::LiteralString.new("uuid_generate_v4()"), :null=>false
+      column :iid, :serial, :null=>false
+
+      column :country_code, "text", :null => false
+      column :country_name, "text"
+      column :iso_numeric, "integer", :null => false
+      column :iso_alpha3, "text", :null => false
+      column :fips_code, "text", :null => false
+      column :continent, "text", :null => false
+      column :continentName, "text"
+      column :capital, "text"
+      column :areaInSqKm, "float"
+      column :population, "integer"
+      column :currencyCode, "text", :null => false
+      column :languages, "text[]"
+      column :geonameId, "integer"
+      column :west, "float"
+      column :north, "float"
+      column :east, "float"
+      column :south, "float"
+      column :created_at, "timestamp without time zone"
+      column :updated_at, "timestamp without time zone"
+
+      primary_key [:id]
+
+      index :iid, :unique=>true
+      index :country_code, :unique=>true
+      index :iso_numeric, :unique=>true
+      index :iso_alpha3, :unique=>true
+      index :fips_code, :unique=>true
+    end
+
     # create_table(:users) do
     #   column :id, "uuid", :default=>Sequel::LiteralString.new("uuid_generate_v4()"), :null=>false
     #   column :iid, :serial, :null=>false
