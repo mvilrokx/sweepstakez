@@ -7,6 +7,9 @@ gem 'json', '1.8.1'
 gem 'sinatra', '1.4.5', require: 'sinatra/base'
 gem 'awesome_print', '1.2.0'
 gem 'dotenv'
+# gem 'activesupport'
+gem 'tzinfo'
+gem 'tzinfo-data'
 
 group :development, :test do
   # gem 'rerun', '0.10.0'

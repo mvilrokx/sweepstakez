@@ -16,6 +16,13 @@ module Sweepstakes
   class App < Sinatra::Application
 
     configure do
+      set :database, lambda {
+        ENV['DATABASE_URL'] ||
+          "postgres://localhost:5432/sweepstakes_#{environment}"
+      }
+    end
+
+    configure do
       enable :logging
       set :root, File.dirname(__FILE__)
       set :public_folder, ENV['RACK_ENV'] == 'production' ? 'public/dist' : 'public/app'
