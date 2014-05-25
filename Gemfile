@@ -10,6 +10,7 @@ gem 'dotenv'
 # gem 'activesupport'
 gem 'tzinfo'
 gem 'tzinfo-data'
+gem 'httparty'
 
 group :development, :test do
   # gem 'rerun', '0.10.0'

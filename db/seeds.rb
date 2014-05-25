@@ -28,7 +28,35 @@ tourny = Tournament.insert(
     :created_at => timestamp,
     :updated_at => timestamp
   )
+end
 
-  #Populate all countries from http://api.geonames.org/countryInfo?username=demo
+print "Loading countries from geonames.org API ...\n"
+#Populate all countries from http://api.geonames.org/countryInfoJSON?username=demo
+response = HTTParty.get('http://api.geonames.org/countryInfoJSON?username=mvilrokx')
+# puts response.body, response.code #, response.message, response.headers.inspect
+response['geonames'].each do |country|
+  print '.'
+  languages = country['languages'].split(",")
+  Country.insert(
+    :country_code => country['countryCode'],
+    :country_name => country['countryName'],
+    :iso_numeric => country['isoNumeric'],
+    :iso_alpha3 => country['isoAlpha3'],
+    :fips_code => country['fipsCode'],
+    :continent => country['continent'],
+    :continent_name => country['continentName'],
+    :capital => country['capital'],
+    :area_in_sq_km => country['areaInSqKm'].to_f,
+    :population => country['population'],
+    :currency_code => country['currencyCode'],
+    :languages => '{' + languages.join(', ') + '}',
+    :geoname_id => country['geonameId'],
+    :west => country['west'],
+    :north => country['north'],
+    :east => country['east'],
+    :south => country['south'],
+    :created_at => timestamp,
+    :updated_at => timestamp
+  )
 
 end

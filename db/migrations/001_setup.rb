@@ -43,20 +43,19 @@ Sequel.migration do
     create_table(:countries) do
       column :id, "uuid", :default=>Sequel::LiteralString.new("uuid_generate_v4()"), :null=>false
       column :iid, :serial, :null=>false
-
       column :country_code, "text", :null => false
       column :country_name, "text"
       column :iso_numeric, "integer", :null => false
       column :iso_alpha3, "text", :null => false
-      column :fips_code, "text", :null => false
+      column :fips_code, "text"
       column :continent, "text", :null => false
-      column :continentName, "text"
+      column :continent_name, "text"
       column :capital, "text"
-      column :areaInSqKm, "float"
+      column :area_in_sq_km, "float"
       column :population, "integer"
-      column :currencyCode, "text", :null => false
+      column :currency_code, "text", :null => false
       column :languages, "text[]"
-      column :geonameId, "integer"
+      column :geoname_id, "integer"
       column :west, "float"
       column :north, "float"
       column :east, "float"
@@ -70,7 +69,7 @@ Sequel.migration do
       index :country_code, :unique=>true
       index :iso_numeric, :unique=>true
       index :iso_alpha3, :unique=>true
-      index :fips_code, :unique=>true
+      # index :fips_code, :unique=>true
     end
 
     # create_table(:users) do
