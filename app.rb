@@ -37,6 +37,7 @@ module Sweepstakes
     # test with curl -i http://localhost:4567/hello -H "Accept-Encoding: gzip,deflate
     use Rack::Deflater
 
+    use Sweepstakes::Routes::Countries
     use Sweepstakes::Routes::Tournaments
 
     before do
