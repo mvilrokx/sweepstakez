@@ -22,7 +22,7 @@ Sequel.migration do
 
       primary_key [:id]
 
-      index :name
+      index :name, :unique=>true
       index :iid, :unique=>true
     end
 
@@ -37,7 +37,7 @@ Sequel.migration do
       primary_key [:id]
 
       index :iid, :unique=>true
-      index :tournament_id
+      index :tournament_id #, :name], :unique=>true
     end
 
     create_table(:countries) do
@@ -69,7 +69,22 @@ Sequel.migration do
       index :country_code, :unique=>true
       index :iso_numeric, :unique=>true
       index :iso_alpha3, :unique=>true
-      # index :fips_code, :unique=>true
+    end
+
+    create_table(:tournament_participants) do
+      column :id, "uuid", :default=>Sequel::LiteralString.new("uuid_generate_v4()"), :null=>false
+      column :iid, :serial, :null=>false
+      foreign_key :group_id, :groups, :type=>"uuid", :key => [:id]
+      foreign_key :country_id, :countries, :type=>"uuid", :key => [:id]
+      column :created_at, "timestamp without time zone"
+      column :updated_at, "timestamp without time zone"
+
+      primary_key [:id]
+
+      index :iid, :unique=>true
+      # index :group_id
+      # index :country_id
+      index [:group_id, :country_id], :unique=>true
     end
 
     # create_table(:users) do

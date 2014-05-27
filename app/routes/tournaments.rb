@@ -1,32 +1,27 @@
 module Sweepstakes
   module Routes
     class Tournaments < Base
-      groups = {
-        '2014 FIFA WORLD CUP' => {
-          'A' => ['Brazil', 'Croatia', 'Mexico', 'Cameroon'],
-          'B' => ['Spain', 'Netherlands', 'Chile', 'Australia'],
-          'C' => ['Colombia', 'Greece', 'Côte D\'Ivoire', 'Japan'],
-          'D' => ['Uruguay', 'Costa Rica', 'England', 'Italy'],
-          'E' => ['Switzerland', 'Ecuador', 'France', 'Honduras'],
-          'F' => ['Argentina', 'Bosnia and Herzegovina', 'Iran', 'Nigeria'],
-          'G' => ['Germany', 'Portugal', 'Ghana', 'USA'],
-          'H' => ['Belgium', 'Algeria', 'Russia', 'Korea Republic']
-        }
-      };
+      groups = {}
 
       # error Models::NotFound do
       #   error 404
       # end
 
-      get '/groups/:tournament' do
+      get '/tournaments/:tournament' do
         content_type :json
+        t = Tournament.where(:name => params[:tournament]).first
+        groups[params[:tournament]] = {}
+
+        t.groups.each do |group|
+          groups[params[:tournament]][group.name] = []
+          group.countries.each do |country|
+            puts group.name + " - " + country.country_name
+            groups[params[:tournament]][group.name].push(country.country_name)
+          end
+        end
         groups[params[:tournament]].to_json
       end
 
-      get '/groups' do
-        content_type :json
-        groups.to_json
-      end
     end
   end
 end

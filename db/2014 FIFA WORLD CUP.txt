@@ -1,0 +1,33 @@
+group name|country name
+A|Brazil
+A|Croatia
+A|Mexico
+A|Cameroon
+B|Spain
+B|Netherlands
+B|Chile
+B|Australia
+C|Colombia
+C|Greece
+C|Ivory Coast
+C|Japan
+D|Uruguay
+D|Costa Rica
+D|England
+D|Italy
+E|Switzerland
+E|Ecuador
+E|France
+E|Honduras
+F|Argentina
+F|Bosnia and Herzegovina
+F|Iran
+F|Nigeria
+G|Germany
+G|Portugal
+G|Ghana
+G|United States
+H|Belgium
+H|Algeria
+H|Russia
+H|South Korea
