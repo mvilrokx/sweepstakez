@@ -34,7 +34,7 @@ module Sweepstakes
 
       set :sessions,
           :httponly     => true,
-          :secure       => production?,
+          # :secure       => production?,
           :expire_after => 31557600, # 1 year
           :secret       => ENV['SESSION_SECRET']
     end
