@@ -9,8 +9,11 @@ $: << File.expand_path('../', __FILE__)
 require 'dotenv'
 Dotenv.load
 
+# require 'rack/csrf'
+
 require 'app/routes'
 require 'app/models'
+require 'app/extensions'
 
 module Sweepstakes
   class App < Sinatra::Application
@@ -27,6 +30,8 @@ module Sweepstakes
       set :root, File.dirname(__FILE__)
       set :public_folder, ENV['RACK_ENV'] == 'production' ? 'public/dist' : 'public/app'
 
+      set :protection, except: :session_hijacking
+
       set :sessions,
           :httponly     => true,
           :secure       => production?,
@@ -36,23 +41,20 @@ module Sweepstakes
 
     # test with curl -i http://localhost:4567/hello -H "Accept-Encoding: gzip,deflate
     use Rack::Deflater
+    # use Rack::Csrf
 
+    use Sweepstakes::Routes::Users
     use Sweepstakes::Routes::Countries
     use Sweepstakes::Routes::Tournaments
 
+
     before do
       # content_type :json
-    #   if Sinatra::Base.development?
-    #     response.headers['Access-Control-Allow-Origin'] = '*'
-    #     response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
-    #     response.headers['Access-Control-Allow-Headers'] = 'X-CSRF-Token' # This is a Rails header, you may not need it
-    #   end
-    end
-
-    # Test route
-    get '/test' do
-      content_type :json
-      { message: 'Hello World!' }.to_json
+      # if Sinatra::Base.development?
+      #   response.headers['Access-Control-Allow-Origin'] = '*'
+      #   response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
+      #   response.headers['Access-Control-Allow-Headers'] = 'X-CSRF-Token' # This is a Rails header, you may not need it
+      # end
     end
 
     # Angular.js

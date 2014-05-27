@@ -4,8 +4,8 @@ module Sweepstakes
       configure do
         set :root, File.expand_path('../../../', __FILE__)
 
-        # disable :method_override
-        # disable :protection
+        disable :method_override
+        disable :protection
         # disable :static
         # set :erb, escape_html: true
 
@@ -16,7 +16,7 @@ module Sweepstakes
 
       # register Extensions::API
       # register Extensions::Assets
-      # register Extensions::Auth  <---- OOOOOH
+      register Extensions::Auth
       # register Extensions::Cache
 
       error Sequel::ValidationFailed do

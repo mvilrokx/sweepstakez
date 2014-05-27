@@ -87,37 +87,36 @@ Sequel.migration do
       index [:group_id, :country_id], :unique=>true
     end
 
-    # create_table(:users) do
-    #   column :id, "uuid", :default=>Sequel::LiteralString.new("uuid_generate_v4()"), :null=>false
-    #   column :iid, :serial, :null=>false
-    #   column :uid, "text"
-    #   column :provider, "text"
-    #   column :handle, "text"
-    #   column :about, "text"
-    #   column :email, "text"
-    #   column :url, "text"
-    #   column :twitter, "text"
-    #   column :karma, "integer", :default=>0
-    #   column :name, "text"
-    #   column :auth, "json"
-    #   column :created_at, "timestamp without time zone"
-    #   column :updated_at, "timestamp without time zone"
-    #   column :active, "boolean", :default=>false
-    #   column :admin, "boolean", :default=>false
-    #   column :registered, "boolean"
-    #   foreign_key :parent_id, :users, :type=>"uuid", :key=>[:id]
-    #   column :invites_count, "integer", :default=>0
-    #   column :github, "text"
-    #   column :activated_at, "timestamp without time zone"
-    #   column :secret, "text"
-    #   column :manifesto, "boolean", :default=>false
+    create_table(:users) do
+      column :id, "uuid", :default=>Sequel::LiteralString.new("uuid_generate_v4()"), :null=>false
+      column :iid, :serial, :null=>false
+      column :uid, "text"
+      column :provider, "text"
+      column :handle, "text"
+      column :about, "text"
+      column :email, "text"
+      column :url, "text"
+      column :twitter, "text"
+      column :karma, "integer", :default=>0
+      column :name, "text"
+      column :auth, "json"
+      column :created_at, "timestamp without time zone"
+      column :updated_at, "timestamp without time zone"
+      column :admin, "boolean", :default=>false
+      column :registered, "boolean"
+      foreign_key :parent_id, :users, :type=>"uuid", :key=>[:id]
+      column :invites_count, "integer", :default=>0
+      column :github, "text"
+      column :secret, "text"
+      column :manifesto, "boolean", :default=>false
 
-    #   primary_key [:id]
+      primary_key [:id]
 
-    #   index [:handle]
-    #   index [:iid], :unique=>true
-    #   index [:uid], :unique=>true
-    # end
+      index [:handle]
+      index [:iid], :unique=>true
+      index [:uid], :unique=>true
+    end
+
   end
 end
 
