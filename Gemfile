@@ -13,6 +13,7 @@ gem 'tzinfo-data'
 gem 'httparty'
 gem 'omniauth-github'
 gem 'omniauth-twitter'
+gem 'omniauth-facebook'
 # gem 'rack_csrf'
 
 group :development, :test do

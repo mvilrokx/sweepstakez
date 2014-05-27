@@ -52,6 +52,9 @@ module Sweepstakes
         app.set :github_key, ENV['GITHUB_KEY']
         app.set :github_secret, ENV['GITHUB_SECRET']
 
+        app.set :facebook_key, ENV['FACEBOOK_KEY']
+        app.set :facebook_secret, ENV['FACEBOOK_SECRET']
+
         app.use OmniAuth::Builder do
           provider :twitter,
                    app.twitter_key,
@@ -61,6 +64,11 @@ module Sweepstakes
           provider :github,
                    app.github_key,
                    app.github_secret
+
+          provider :facebook,
+                   app.facebook_key,
+                   app.facebook_secret
+
         end
 
         app.set(:auth) do |type|

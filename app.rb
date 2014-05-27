@@ -34,6 +34,7 @@ module Sweepstakes
 
       set :sessions,
           :httponly     => true,
+          # This breaks omniauth so removed this for now
           # :secure       => production?,
           :expire_after => 31557600, # 1 year
           :secret       => ENV['SESSION_SECRET']
