@@ -14,7 +14,7 @@
     <!-- <li class="active"><a ng-href="#">Home</a></li> -->
     <li ng-if="loggedIn()"><a href="/logout">Log Out</a></li>
     <!-- <li ng-if="loggedIn()"><a ng-href="#">Welcome {{session.name}}</a></li> -->
-    <li ng-if="loggedIn()"><img class="avatar-img" src={{session.avatar_url}}></li>
+    <li ng-if="loggedIn()"><img class="avatar-img" ng-src={{session.avatar_url}}></li>
     <li class="social-login" ng-if="!loggedIn()"><a href="/auth/twitter"><i class="fa fa-twitter-square"></i></a></li>
     <li class="social-login" ng-if="!loggedIn()"><a href="/auth/facebook"><i class="fa fa-facebook-square"></i></a></li>
     <li ng-if="!loggedIn()"><a class="social-login" href="/auth/github"><i class="fa fa-github-square"></i></a></li>
