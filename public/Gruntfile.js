@@ -421,7 +421,7 @@ module.exports = function (grunt) {
     'copy:dist',
     'cdnify',
     'cssmin',
-    // 'uglify',
+    // 'uglify', When I add this angular does not work anymore
     'rev',
     'usemin',
     'htmlmin'
