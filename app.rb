@@ -5,10 +5,12 @@ Bundler.require
 
 # ensure that the current directory is in the app's load path (aliased to $:).
 $: << File.expand_path('../', __FILE__)
+$: << File.expand_path('../lib', __FILE__)
 
 require 'dotenv'
 Dotenv.load
 
+require 'active_support/json'
 # require 'rack/csrf'
 
 require 'app/routes'
@@ -45,6 +47,8 @@ module Sweepstakes
     # use Rack::Csrf
 
     use Sweepstakes::Routes::Users
+    use Sweepstakes::Routes::Teams
+    use Sweepstakes::Routes::Picks
     use Sweepstakes::Routes::Countries
     use Sweepstakes::Routes::Tournaments
 

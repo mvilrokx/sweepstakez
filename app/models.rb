@@ -5,8 +5,8 @@ require 'active_support/core_ext/hash'
 Sequel.default_timezone = :utc
 
 Sequel.extension :core_extensions
-# Sequel.extension :pg_array
-# Sequel.extension :pg_array_ops
+Sequel.extension :pg_array
+Sequel.extension :pg_array_ops
 
 Sequel::Model.plugin :timestamps
 Sequel::Model.plugin :serialization
@@ -28,5 +28,7 @@ module Sweepstakes
     autoload :Group, 'app/models/group'
     autoload :TournamentParticipant, 'app/models/tournament_participant'
     autoload :Country, 'app/models/country'
+    autoload :Team, 'app/models/team'
+    autoload :Pick, 'app/models/pick'
   end
 end

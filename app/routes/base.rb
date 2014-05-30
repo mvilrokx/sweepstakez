@@ -14,7 +14,7 @@ module Sweepstakes
         set :show_exceptions, :after_handler
       end
 
-      # register Extensions::API
+      register Extensions::API
       # register Extensions::Assets
       register Extensions::Auth
       # register Extensions::Cache

@@ -1,5 +1,5 @@
-# require 'gravatar'
-# require 'bcrypt'
+require 'gravatar'
+require 'bcrypt'
 
 module Sweepstakes
   module Models
@@ -18,6 +18,7 @@ module Sweepstakes
         end
       end
 
+      one_to_many :teams, :on_delete => :cascade
       # one_to_many :posts, :on_delete => :cascade
       # one_to_many :comments, :on_delete => :cascade
 
@@ -43,9 +44,9 @@ module Sweepstakes
       end
 
       def self.from_auth!(auth)
-        puts auth
         auth           = auth.with_indifferent_access
         user           = find_by_uid(auth[:uid]) || self.new
+
         user.uid       = auth[:uid]
         user.provider  = auth[:provider]
         user.auth      = auth.except(:extra)
@@ -72,9 +73,9 @@ module Sweepstakes
         auth[:urls] || {}
       end
 
-      # def avatar_url
-      #   auth_info[:image] || Gravatar.url(email || id)
-      # end
+      def avatar_url
+        auth_info[:image] || Gravatar.url(email || id)
+      end
 
       def admin?
         !!admin
@@ -117,17 +118,17 @@ module Sweepstakes
         # set_invites_count
       end
 
-      # def as_json(options = nil)
-      #   result = {}
-      #   user   = (options || {})[:user]
+      def as_json(options = nil)
+        result = {}
+        user   = (options || {})[:user]
 
-      #   if self == user
-      #     result.merge!(as_protected_json(options))
-      #   end
+        if self == user
+          result.merge!(as_protected_json(options))
+        end
 
-      #   result.merge!(as_safe_json(options))
-      #   result
-      # end
+        result.merge!(as_safe_json(options))
+        result
+      end
 
       protected
 
@@ -152,30 +153,30 @@ module Sweepstakes
         created_at && created_at >= 10.seconds.ago
       end
 
-      # def as_protected_json(options = nil)
-      #   {
-      #     email: email,
-      #     recent: recent?,
-      #     invites_count: invites_count,
-      #     manifesto: manifesto,
-      #     admin: admin?
-      #   }
-      # end
+      def as_protected_json(options = nil)
+        {
+          email: email,
+          # recent: recent?,
+          # invites_count: invites_count,
+          manifesto: manifesto,
+          admin: admin?
+        }
+      end
 
-      # def as_safe_json(options = nil)
-      #   {
-      #     id: id,
-      #     handle: handle,
-      #     name: name,
-      #     url: url,
-      #     twitter: twitter,
-      #     github: github,
-      #     about: about,
-      #     karma: karma,
-      #     avatar_url: avatar_url,
-      #     created_at: created_at
-      #   }
-      # end
+      def as_safe_json(options = nil)
+        {
+          id: id,
+          handle: handle,
+          name: name,
+          url: url,
+          twitter: twitter,
+          github: github,
+          about: about,
+          # karma: karma,
+          avatar_url: avatar_url,
+          created_at: created_at
+        }
+      end
 
       # def check_invite!
       #   invite = UserInvite.pending.matching(

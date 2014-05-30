@@ -24,10 +24,10 @@ module Sweepstakes
         redirect '/'
       end
 
-      # get '/v1/users/current' do
-      #   error 404 unless current_user?
-      #   json current_user
-      # end
+      get '/v1/users/current' do
+        error 404 unless current_user?
+        json current_user
+      end
 
       # post '/v1/users/current', :auth => :user do
       #   current_user.update_fields(params, [:manifesto])

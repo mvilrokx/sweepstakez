@@ -82,8 +82,6 @@ Sequel.migration do
       primary_key [:id]
 
       index :iid, :unique=>true
-      # index :group_id
-      # index :country_id
       index [:group_id, :country_id], :unique=>true
     end
 
@@ -115,6 +113,33 @@ Sequel.migration do
       index [:handle]
       index [:iid], :unique=>true
       index [:uid], :unique=>true
+    end
+
+    create_table(:teams) do
+      column :id, "uuid", :default=>Sequel::LiteralString.new("uuid_generate_v4()"), :null=>false
+      column :iid, :serial, :null=>false
+      column :name, "text"
+      foreign_key :user_id, :users, :type=>"uuid", :key => [:id]
+      foreign_key :tournament_id, :tournaments, :type=>"uuid", :key => [:id]
+      column :created_at, "timestamp without time zone"
+      column :updated_at, "timestamp without time zone"
+
+      primary_key [:id]
+
+      index :iid, :unique=>true
+    end
+
+    create_table(:picks) do
+      column :id, "uuid", :default=>Sequel::LiteralString.new("uuid_generate_v4()"), :null=>false
+      column :iid, :serial, :null=>false
+      foreign_key :team_id, :teams, :type=>"uuid", :key => [:id]
+      foreign_key :tournament_participant_id, :tournament_participants, :type=>"uuid", :key => [:id]
+      column :created_at, "timestamp without time zone"
+      column :updated_at, "timestamp without time zone"
+
+      primary_key [:id]
+
+      index :iid, :unique=>true
     end
 
   end
