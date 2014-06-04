@@ -155,7 +155,8 @@ app.service('sessionService', ['$http', '$q', function($http, $q){
 'use strict';
 
 app.factory('Tournaments', ['$resource', function($resource){
-  var Tournaments = $resource('/tournaments/:id', {id: '@id'}, {
+  var Tournaments = $resource('/tournaments/:name', {name: '@name'}, {
+  // var Tournaments = $resource('/tournaments/:id', {id: '@id',  name: '@name'}, {
     update: {
       method: 'PUT'
     }
@@ -260,7 +261,8 @@ app.controller('mySelectionsCtrl', ['$scope', '$routeParams', '$location', 'mySe
 app.controller('TournamentsCtrl', ['$scope', 'Tournaments', function ($scope, Tournaments) {
   // TODO: Remove Hard coded tournament!
   function init() {
-    $scope.tournament = Tournaments.get({id: 'dc043dc3-44b0-4abd-8fbd-411de8fd92ed'});
+    $scope.tournament = Tournaments.get({name: '2014 FIFA WORLD CUP'});
+    // $scope.tournament = Tournaments.get({id: 'dc043dc3-44b0-4abd-8fbd-411de8fd92ed'});
   }
 
   init();

@@ -18,10 +18,15 @@ module Sweepstakes
       #   groups[params[:tournament]].to_json
       # end
 
-      get '/tournaments/:id' do
-        tournament = Tournament.first!(id: params[:id])
+      get '/tournaments/:name' do
+        tournament = Tournament.where(name: params[:name]).first!
         json tournament
       end
+
+      # get '/tournaments/:id' do
+      #   tournament = Tournament.first!(id: params[:id])
+      #   json tournament
+      # end
 
       # get '/tournaments/:tournament_name' do
       #   t = Tournament.where(:name => params[:tournament_name]).first
