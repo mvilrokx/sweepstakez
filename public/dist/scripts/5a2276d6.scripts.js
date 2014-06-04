@@ -7,11 +7,11 @@ app.config(function ($routeProvider) {
     .when('/', {
       templateUrl: 'views/main.html',
       controller: 'MainCtrl',
-      resolve: {
-        session: function(sessionService) {
-          return sessionService.getCurrentUser();
-        }
-      }
+      // resolve: {
+      //   session: function(sessionService) {
+      //     return sessionService.getCurrentUser();
+      //   }
+      // }
     })
     .when('/myselections', {
       templateUrl: 'views/mySelections.html',
@@ -145,7 +145,6 @@ app.service('sessionService', ['$http', '$q', function($http, $q){
     }
   };
 
-
   this.isAuthenticated = function() {
     return !!currentUser;
   };
@@ -191,19 +190,58 @@ app.factory('Picks', ['$resource', function($resource){
 
 'use strict';
 
-app.controller('MainCtrl', ['$scope', 'session', function ($scope, session) {
-  $scope.awesomeThings = [
-    'HTML5 Boilerplate',
-    'AngularJS',
-    'Karma'
-  ];
+app.service('rankingService', ['$http', function($http){
+  var ranking = null;
+
+  this.getRanking = function(tournamentName) {
+    return $http.get('/tournaments/' + tournamentName + '/ranking').then(function success(response) {
+      ranking = response.data;
+      return ranking;
+    }, function error(response) {
+      if(response.status === 404){
+        return ranking;
+      } else {
+        // TODO: Different error, raise something
+      }
+    });
+  };
+
+}]);
+
+'use strict';
+
+app.controller('MainCtrl', ['$scope', 'rankingService', function ($scope, rankingService) {
+// app.controller('MainCtrl', ['$scope', 'session', function ($scope, session) {
+  // $scope.ranking = rankingService.getRanking('2014 FIFA WORLD CUP');
+  // console.log($scope.ranking);
+
+  rankingService.getRanking('2014 FIFA WORLD CUP').then(function(ranking){
+    $scope.ranking = ranking;
+    console.log($scope.ranking);
+  });
+
+
+  // $scope.session = session;
+
+  // $scope.loggedIn = function(){
+  //   return !!session;
+  // };
+
+}]);
 
 
 
-  $scope.session = session;
+'use strict';
+
+app.controller('SessionsCtrl', ['$scope', 'sessionService', function ($scope, sessionService) {
+  // $scope.session = sessionService.getCurrentUser();
+
+  sessionService.getCurrentUser().then(function(session){
+    $scope.session = session;
+  });
 
   $scope.loggedIn = function(){
-    return !!session;
+    return sessionService.isAuthenticated();
   };
 
 }]);

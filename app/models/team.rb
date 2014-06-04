@@ -20,12 +20,14 @@ module Sweepstakes
       end
 
       def as_json(options = nil)
-        user = (options || {})[:user]
+        # user = (options || {})[:user]
         {
           id:              id,
           name:            name,
           tournament_id:   tournament_id,
-          tournament_name: tournament_name
+          tournament_name: tournament_name,
+          picks:           picks,
+          user:            user
         }
       end
 

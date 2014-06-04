@@ -15794,12 +15794,6 @@ button.close {
 }
 
 /* Space out content a bit */
-/* line 19, main.scss */
-body {
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
 /* Everything but the jumbotron gets side spacing for mobile first views */
 /* line 27, main.scss */
 .header,
@@ -15890,14 +15884,97 @@ body {
   }
 }
 /* line 103, main.scss */
+html, body {
+  height: 100%;
+  /* needed for container min-height */
+}
+
+/* line 111, main.scss */
+.page-wrap {
+  height: auto !important;
+  min-height: 100%;
+  background-repeat: no-repeat;
+  margin-bottom: -40px;
+}
+
+/* line 119, main.scss */
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+
+/* line 124, main.scss */
+.app-footer, .page-wrap:after {
+  /* .push must be the same height as footer */
+  height: 40px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+/* line 131, main.scss */
+.brazil-background-hgradient {
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #009b3a), color-stop(100%, #fedf00));
+  background-image: -webkit-linear-gradient(left, #009b3a, #fedf00);
+  background-image: -moz-linear-gradient(left, #009b3a, #fedf00);
+  background-image: -o-linear-gradient(left, #009b3a, #fedf00);
+  background-image: linear-gradient(left, #009b3a, #fedf00);
+}
+
+/* line 135, main.scss */
+.brazil-background-vgradient {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #009b3a), color-stop(100%, #fedf00));
+  background-image: -webkit-linear-gradient(#009b3a, #fedf00);
+  background-image: -moz-linear-gradient(#009b3a, #fedf00);
+  background-image: -o-linear-gradient(#009b3a, #fedf00);
+  background-image: linear-gradient(#009b3a, #fedf00);
+}
+
+/* line 142, main.scss */
 a {
   cursor: pointer;
 }
 
-/* line 107, main.scss */
+/* line 146, main.scss */
+.app-header {
+  background: #002776;
+  margin-bottom: 30px;
+  padding-top: 10px;
+  color: #fff;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+/* line 155, main.scss */
+.app-title {
+  color: #fff;
+  font-size: 24px;
+}
+/* line 158, main.scss */
+.app-title:hover {
+  text-decoration: none;
+  color: #e6e6e6;
+}
+
+/* line 164, main.scss */
+.app-logo {
+  width: 64px;
+  height: 64px;
+}
+
+/* line 169, main.scss */
+.app-menu {
+  float: right;
+}
+/* line 171, main.scss */
+.app-menu li {
+  float: left;
+  padding-right: 10px;
+}
+
+/* line 177, main.scss */
 .avatar-img {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
@@ -15905,8 +15982,24 @@ a {
   border-radius: 50%;
 }
 
-/* line 114, main.scss */
+/* line 184, main.scss */
 .social-login {
   font-size: 3em;
-  padding: 0 0;
+  color: #fff;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  transition: all .25s;
+}
+/* line 193, main.scss */
+.social-login:hover {
+  text-decoration: none;
+  color: #002776;
+  background: #fff;
 }

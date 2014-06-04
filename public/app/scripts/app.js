@@ -7,11 +7,11 @@ app.config(function ($routeProvider) {
     .when('/', {
       templateUrl: 'views/main.html',
       controller: 'MainCtrl',
-      resolve: {
-        session: function(sessionService) {
-          return sessionService.getCurrentUser();
-        }
-      }
+      // resolve: {
+      //   session: function(sessionService) {
+      //     return sessionService.getCurrentUser();
+      //   }
+      // }
     })
     .when('/myselections', {
       templateUrl: 'views/mySelections.html',

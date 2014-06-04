@@ -17,8 +17,8 @@ $icon-font-path: '/fonts/';
 
 /* Space out content a bit */
 body {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    // padding-top: 20px;
+    // padding-bottom: 20px;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -97,21 +97,103 @@ body {
 }
 
 
+
+
+// BELOW IS MY CSS
+html, body {
+  height: 100%; /* needed for container min-height */
+}
+
+$brazil-flag-green: #009b3a;
+$brazil-flag-yellow: #fedf00;
+$brazil-flag-blue: #002776;
+
+.page-wrap {
+  height:auto !important;
+  // height:100%;
+  min-height:100%;
+  background-repeat: no-repeat;
+  margin-bottom: -40px;
+}
+
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+
+.app-footer, .page-wrap:after {
+  /* .push must be the same height as footer */
+  height: 40px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.brazil-background-hgradient {
+  @include background-image(linear-gradient(left, $brazil-flag-green, $brazil-flag-yellow));
+}
+
+.brazil-background-vgradient {
+  @include background-image(linear-gradient($brazil-flag-green, $brazil-flag-yellow));
+}
+
 // This is needed for Angular JS where you can specify anchors without
 // an href attribute to simulate preventDefault.  However, an anchor element
-// without href does not show a pointer, hence this rulse
+// without href does not show a pointer, hence this rule
 a {
   cursor: pointer;
 }
 
+.app-header {
+  background: $brazil-flag-blue;
+  margin-bottom: 30px;
+  padding-top: 10px;
+  color: #fff;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.app-title {
+  color: #fff;
+  font-size: 24px;
+  &:hover {
+    text-decoration: none;
+    color: darken(#fff,10%);
+  }
+}
+
+.app-logo {
+  width: 64px;
+  height: 64px;
+}
+
+.app-menu {
+  float: right;
+  li {
+    float: left;
+    padding-right: 10px;
+  }
+}
+
 .avatar-img {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   @include border-radius(50%);
   // border: 2px solid #000;
 }
 
 .social-login {
   font-size: 3em;
-  padding: 0 0;
+  color: #fff;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  @include border-radius(50%);
+  transition: all .25s;
+  &:hover {
+    text-decoration: none;
+    color: $brazil-flag-blue;
+    background: #fff;
+  // padding: 0 0;
+  }
 }

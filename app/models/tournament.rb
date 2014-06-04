@@ -11,8 +11,10 @@ module Sweepstakes
       end
 
       def as_json(options = nil)
-        user = (options || {})[:user]
-        {
+        # user = (options || {})[:user]
+        options ||= {}
+
+        result = {
           id:             id,
           name:           name,
           description:    description,
@@ -21,6 +23,13 @@ module Sweepstakes
           host_countries: host_countries,
           groups:         groups
         }
+
+        if options[:teams] then
+          result.delete(:groups)
+          result.delete(:host_countries)
+          result.merge!(teams: teams)
+        end
+        result
       end
 
     end

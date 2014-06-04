@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
-    <title>Sweepstakes</title>
+    <title>UX Sweepstakes</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -19,13 +19,46 @@
     <link rel="stylesheet" href="styles/mySelections.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="sweepstakesApp">
+  <body class="brazil-background-vgradient" ng-app="sweepstakesApp">
+    <div class="page-wrap">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <!-- Add your site or application content here -->
-    <div class="container" ng-view=""></div>
+      <div ng-controller="SessionsCtrl">
+        <div class="app-header">
+          <a class="app-title" href="#">
+            <img class="app-logo" src="images/FIFA-WORLD-CUP-BRAZIL-2014-LOGO-128x128.png">2014 Brazil World Cup Sweepstakes
+          </a>
+          <ul class="list-unstyled app-menu">
+            <li ng-if="loggedIn()" title="Sign Out">
+              <a class="social-login" href="/logout"><i class="fa fa-sign-out"></i></a>
+            </li>
+            <li ng-if="loggedIn()" title="Your Teams">
+              <a href="#/myteams"><img class="avatar-img" ng-src={{session.avatar_url}}></a>
+            </li>
+            <li ng-if="!loggedIn()" title="Login with Twitter">
+              <a class="social-login" href="/auth/twitter"><i class="fa fa-twitter"></i></a>
+            </li>
+            <li ng-if="!loggedIn()" title="Login with Facebook">
+              <a class="social-login" href="/auth/facebook"><i class="fa fa-facebook"></i></a>
+            </li>
+            <li ng-if="!loggedIn()" title="Login with Github">
+              <a class="social-login" href="/auth/github"><i class="fa fa-github"></i></a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Add your site or application content here -->
+        <div class="container" ng-view=""></div>
+
+      </div> <!-- END ng-controller="SessionsCtrl" -->
+
+    </div>
+
+    <div class="app-footer">
+      <p>Build by Mark Vilrokx</p>
+    </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
 <!--      <script>
@@ -77,7 +110,9 @@
         <script src="scripts/services/TournamentsService.js"></script>
         <script src="scripts/services/teamsService.js"></script>
         <script src="scripts/services/picksService.js"></script>
+        <script src="scripts/services/rankingService.js"></script>
         <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/sessions.js"></script>
         <script src="scripts/controllers/groups.js"></script>
         <script src="scripts/controllers/mySelections.js"></script>
         <script src="scripts/controllers/tournaments.js"></script>

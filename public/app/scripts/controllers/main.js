@@ -1,18 +1,22 @@
 'use strict';
 
-app.controller('MainCtrl', ['$scope', 'session', function ($scope, session) {
-  $scope.awesomeThings = [
-    'HTML5 Boilerplate',
-    'AngularJS',
-    'Karma'
-  ];
+app.controller('MainCtrl', ['$scope', 'rankingService', function ($scope, rankingService) {
+// app.controller('MainCtrl', ['$scope', 'session', function ($scope, session) {
+  // $scope.ranking = rankingService.getRanking('2014 FIFA WORLD CUP');
+  // console.log($scope.ranking);
+
+  rankingService.getRanking('2014 FIFA WORLD CUP').then(function(ranking){
+    $scope.ranking = ranking;
+    console.log($scope.ranking);
+  });
 
 
+  // $scope.session = session;
 
-  $scope.session = session;
-
-  $scope.loggedIn = function(){
-    return !!session;
-  };
+  // $scope.loggedIn = function(){
+  //   return !!session;
+  // };
 
 }]);
+
+

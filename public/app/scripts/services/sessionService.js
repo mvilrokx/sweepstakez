@@ -20,7 +20,6 @@ app.service('sessionService', ['$http', '$q', function($http, $q){
     }
   };
 
-
   this.isAuthenticated = function() {
     return !!currentUser;
   };
