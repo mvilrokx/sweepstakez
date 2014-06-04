@@ -15889,7 +15889,12 @@ body {
     border-bottom: 0;
   }
 }
-/* line 99, main.scss */
+/* line 103, main.scss */
+a {
+  cursor: pointer;
+}
+
+/* line 107, main.scss */
 .avatar-img {
   width: 40px;
   height: 40px;
@@ -15900,7 +15905,7 @@ body {
   border-radius: 50%;
 }
 
-/* line 106, main.scss */
+/* line 114, main.scss */
 .social-login {
   font-size: 3em;
   padding: 0 0;

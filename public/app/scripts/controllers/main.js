@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('MainCtrl', ['$scope', 'session', 'sessionService', function ($scope, session, sessionService) {
+app.controller('MainCtrl', ['$scope', 'session', function ($scope, session) {
   $scope.awesomeThings = [
     'HTML5 Boilerplate',
     'AngularJS',

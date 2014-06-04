@@ -15,6 +15,8 @@ gem 'omniauth-github'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'bcrypt'
+gem 'rack-contrib', git: 'git@github.com:rack/rack-contrib', ref: 'b7237381e412852435d87100a37add67b2cfbb63'
+
 # gem 'rack_csrf'
 
 group :development, :test do

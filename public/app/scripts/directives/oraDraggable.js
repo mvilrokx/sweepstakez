@@ -11,7 +11,6 @@ app.directive('oraDraggable', ['$rootScope', 'uuidService', function($rootScope,
 
       // Set a UUID on the element so we can keep track of it while dragging
       var id = element.attr('id');
-
       if (!id) {
         id = uuidService.getUUID();
         element.attr('id', id);
@@ -19,6 +18,7 @@ app.directive('oraDraggable', ['$rootScope', 'uuidService', function($rootScope,
 
       // bind drag events to element
       element.bind('dragstart', function(e){
+        id = e.currentTarget.id;
         e.dataTransfer.setData('text/plain', id);
         e.dataTransfer.setData('text', id); // fallback for IE
         e.dataTransfer.effectAllowed = 'move';

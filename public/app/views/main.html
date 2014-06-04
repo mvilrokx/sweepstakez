@@ -12,6 +12,7 @@
  -->
   <ul class="nav nav-pills pull-right">
     <!-- <li class="active"><a ng-href="#">Home</a></li> -->
+    <li ng-if="loggedIn()"><a href="#/myteams">My Teams</a></li>
     <li ng-if="loggedIn()"><a href="/logout">Log Out</a></li>
     <!-- <li ng-if="loggedIn()"><a ng-href="#">Welcome {{session.name}}</a></li> -->
     <li ng-if="loggedIn()"><img class="avatar-img" ng-src={{session.avatar_url}}></li>

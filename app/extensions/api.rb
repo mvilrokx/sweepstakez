@@ -4,8 +4,10 @@ module Sweepstakes
       module Helpers
         def json(value, options = {})
           options = {user: current_user}.merge(options)
+          # ap value
+          # ap options
           content_type :json
-          puts value.to_json(options)
+          # puts value.to_json(options)
           value.to_json(options)
         end
 

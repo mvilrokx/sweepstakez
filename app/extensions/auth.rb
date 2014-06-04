@@ -45,7 +45,6 @@ module Sweepstakes
       end
 
       def registered(app)
-        puts 'registered called'
         app.set :twitter_key, ENV['TWITTER_KEY']
         app.set :twitter_secret, ENV['TWITTER_SECRET']
 

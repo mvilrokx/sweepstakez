@@ -2,16 +2,65 @@ module Sweepstakes
   module Routes
     class Teams < Base
 
-      # error Models::NotFound do
-      #   error 404
-      # end
-
-      # get '/teams', :auth => true do
-      get '/teams' do
-        content_type :json
-        # Team.for_user(current_user).naked.all.to_json
-        Team.naked.all.to_json
+      # Query All
+      get '/teams', :auth => true do
+        json Team.for_user(current_user)
       end
+
+      # Query one
+      get '/teams/:id', :auth => true do
+        if current_user.admin?
+          team = Team.first!(id: params[:id])
+        else
+          team = Team.for_user(current_user).first!(id: params[:id])
+        end
+        json team
+      end
+
+      # Create
+      post '/teams', :auth => true do
+        team      = Team.new
+        team.user = current_user
+        puts params
+
+        team.tournament_id = Tournament.active.first[:id]
+
+        team.set_fields(params, [:name])
+        # team.set_fields(params, [:name, :tournament_id])
+
+        team.save
+
+        json team
+      end
+
+      # Update
+      put '/teams/:id', :auth => true do
+        if current_user.admin?
+          team = Team.first!(id: params[:id])
+        else
+          team = Team.for_user(current_user).first!(id: params[:id])
+        end
+        team.update(name: params[:name])
+
+        json team
+      end
+
+      # Delete
+      delete '/teams/:id', :auth => true do
+        if current_user.admin?
+          team = Team.first!(id: params[:id])
+        else
+          team = Team.for_user(current_user).first!(id: params[:id])
+        end
+        team.delete
+        json team
+      end
+
+      # get '/teams/:id/picks', :auth => true do
+      #   team = Team.first!(id: params[:id])
+      #   picks = team.picks_dataset
+      #   json picks
+      # end
 
     end
   end

@@ -96,6 +96,14 @@ body {
     }
 }
 
+
+// This is needed for Angular JS where you can specify anchors without
+// an href attribute to simulate preventDefault.  However, an anchor element
+// without href does not show a pointer, hence this rulse
+a {
+  cursor: pointer;
+}
+
 .avatar-img {
   width: 40px;
   height: 40px;

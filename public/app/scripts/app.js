@@ -17,6 +17,14 @@ app.config(function ($routeProvider) {
       templateUrl: 'views/mySelections.html',
       controller: 'mySelectionsCtrl'
     })
+    .when('/myteams', {
+      templateUrl: 'views/userTeams.html',
+      controller: 'TeamsCtrl'
+    })
+    .when('/myteams/:teamId/mypicks', {
+      templateUrl: 'views/userPicks.html',
+      controller: 'PicksCtrl'
+    })
     .otherwise({
       redirectTo: '/'
     });

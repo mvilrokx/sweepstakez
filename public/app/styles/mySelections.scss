@@ -13,11 +13,11 @@
   cursor: grabbing;
 }
 
-.my-selection-list {
+.my-selection-list, .user-picks-list {
   font-size: 1.5em;
 }
 
-.my-selection-list-item {
+.my-selection-list-item, .user-picks-list-item {
   padding: 10px;
   margin: 10px;
   @include border-radius(5px);
@@ -37,25 +37,29 @@
 }
 
 // when dragging an item over an empty item
-.ora-target.ora-drag-enter.my-selection-list-item-empty {
+.ora-target.ora-drag-enter.my-selection-list-item-empty,
+.ora-target.ora-drag-enter.user-picks-list-item-empty {
   background: #ccc;
   border: 2px inset #aaa;
 }
 
 // when dragging an item over a non-empty item
-.ora-target.ora-drag-enter:not(.my-selection-list-item-empty) {
+.ora-target.ora-drag-enter:not(.my-selection-list-item-empty),
+.ora-target.ora-drag-enter:not(.user-picks-list-item-empty) {
   opacity: .9;
   border: 2px inset darken($brand-success,10%);
 }
 
 // empty target
-.ora-target.my-selection-list-item-empty {
+.ora-target.my-selection-list-item-empty,
+.ora-target.user-picks-list-item-empty {
   background: #eee;
   border: 2px dashed #aaa;
 }
 
 // non-empty target
-.ora-target:not(.my-selection-list-item-empty) {
+.ora-target:not(.my-selection-list-item-empty),
+.ora-target:not(.user-picks-list-item-empty) {
   opacity: .8;
   border: 2px dashed darken($brand-success,10%);
 }

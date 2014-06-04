@@ -28,15 +28,6 @@ app.controller('mySelectionsCtrl', ['$scope', '$routeParams', '$location', 'mySe
     return i;
   }
 
-  // function randomData() {
-  //   mySelectionService.addSelection(1, 'Belgium');
-  //   mySelectionService.addSelection(3, 'Brazil');
-  //   mySelectionService.addSelection(4, 'France');
-  //   mySelectionService.addSelection(6, 'Italia');
-  //   mySelectionService.addSelection(8, 'Argentina');
-  // }
-
   init();
-  // randomData();
 
 }]);
