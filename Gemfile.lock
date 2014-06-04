@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:rack/rack-contrib
+  remote: git://github.com/rack/rack-contrib
   revision: b7237381e412852435d87100a37add67b2cfbb63
   ref: b7237381e412852435d87100a37add67b2cfbb63
   specs:
