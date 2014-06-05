@@ -52,7 +52,8 @@ module Sweepstakes
         else
           team = Team.for_user(current_user).first!(id: params[:id])
         end
-        team.delete
+        # team.delete
+        team.destroy
         json team
       end
 

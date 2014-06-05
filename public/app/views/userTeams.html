@@ -1,42 +1,62 @@
 <div class="container-fluid">
+  <div class="content">
 
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="page-header">
-        <h1>My Teams <small>Manage your teams.</small></h1>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="page-header">
+          <h1>My Teams <small>Manage your teams.</small></h1>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-lg-12">
-      <ul class="user-teams-list list-unstyled">
-        <li class="user-teams-list-item" ng-repeat="team in teams">
-          <span ng-if="!editing">
-            <span ng-click="editTeam()">{{team.name}} - {{team.tournament_name}}</span>
-            <a ng-click="deleteTeam(team)">X</a>
-            <a ng-href="#/myteams/{{team.id}}/mypicks">Picks</a>
-          </span>
-          <span ng-if="editing">
-            <input id="team-name" type="text" ng-model="team.name">
-            <button class="btn btn-primary btn-sm" ng-click="saveTeam(team)">Save</button>
-          </span>
-        </li>
-      </ul>
+    <div class="row">
+      <div class="col-lg-12">
+        <ul class="user-teams-list list-unstyled">
+          <li class="user-teams-list-item" ng-repeat="team in teams">
+            <span ng-if="!team.editing">
+              <span ng-click="editTeam(team)">
+                <div class="col-lg-4"> {{team.name}} </div>
+                <div class="col-lg-4"> {{team.tournament_name}} </div>
+                <div class="col-lg-4">
+                  <a ng-click="deleteTeam(team)">X</a>
+                  <a ng-href="#/myteams/{{team.id}}/mypicks">Picks</a>
+                </div>
+              </span>
+            </span>
+            <span ng-if="team.editing">
+              <form role="form">
+                <div class="row">
+                  <div class="col-xs-10">
+                    <label class="sr-only" for="team-name">Team Name</label>
+                    <input type="text" class="form-control" id="team-name" ng-model="team.name">
+                  </div>
+                  <div class="col-xs-1">
+                    <a ng-click="saveTeam(team)" title="save"><i class="fa fa-check"></i></a>
+                  </div>
+                  <div class="col-xs-1">
+                    <!-- <a ng-click="team.editing=false" title="cancel"><i class="fa fa-times"></i></a> -->
+                    <a ng-click="resetTeam(team)" title="cancel"><i class="fa fa-times"></i></a>
+                  </div>
+                </div>
+              </form>
+            </span>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-lg-12">
-      <form ng-submit="saveTeam(team)">
-      <!-- <form ng-submit="saveTeam(team)" ng-init="team.tournament_id = '5221249d-72de-4682-9e19-24c22e59b3da'"> -->
-        <label for="team-name">Name</label>
-        <input id="team-name" type="text" ng-model="team.name">
-<!--           <label for="team-tournament">Tournament</label>
-        <input disabled id="team-tournament" type="text" ng-model="team.tournament_id"> -->
-        <button type="submit" class="btn btn-primary btn-sm" ng-disabled="!team.name">Save</button>
-      </form>
+    <div class="row">
+      <div class="col-lg-12">
+        <form ng-submit="saveTeam(team)">
+        <!-- <form ng-submit="saveTeam(team)" ng-init="team.tournament_id = '5221249d-72de-4682-9e19-24c22e59b3da'"> -->
+          <label for="team-name">Name</label>
+          <input id="team-name" type="text" ng-model="team.name">
+  <!--           <label for="team-tournament">Tournament</label>
+          <input disabled id="team-tournament" type="text" ng-model="team.tournament_id"> -->
+          <button type="submit" class="btn btn-primary btn-sm" ng-disabled="!team.name">Save</button>
+        </form>
+      </div>
     </div>
-  </div>
 
+  </div>
 </div>

@@ -30,7 +30,7 @@ Sequel.migration do
       column :id, "uuid", :default=>Sequel::LiteralString.new("uuid_generate_v4()"), :null=>false
       column :iid, :serial, :null=>false
       column :name, "text"
-      foreign_key :tournament_id, :tournaments, :type=>"uuid", :key => [:id]
+      foreign_key :tournament_id, :tournaments, :type=>"uuid", :key => [:id], :on_delete => :cascade
       column :created_at, "timestamp without time zone"
       column :updated_at, "timestamp without time zone"
 
@@ -74,8 +74,8 @@ Sequel.migration do
     create_table(:tournament_participants) do
       column :id, "uuid", :default => Sequel::LiteralString.new("uuid_generate_v4()"), :null => false
       column :iid, :serial, :null => false
-      foreign_key :group_id, :groups, :type=>"uuid", :key => [:id]
-      foreign_key :country_id, :countries, :type=>"uuid", :key => [:id]
+      foreign_key :group_id, :groups, :type=>"uuid", :key => [:id], :on_delete => :cascade
+      foreign_key :country_id, :countries, :type=>"uuid", :key => [:id], :on_delete => :cascade
       column :created_at, "timestamp without time zone"
       column :updated_at, "timestamp without time zone"
 
@@ -119,8 +119,8 @@ Sequel.migration do
       column :id, "uuid", :default => Sequel::LiteralString.new("uuid_generate_v4()"), :null => false
       column :iid, :serial, :null => false
       column :name, "text"
-      foreign_key :user_id, :users, :type=>"uuid", :key => [:id]
-      foreign_key :tournament_id, :tournaments, :type=>"uuid", :key => [:id]
+      foreign_key :user_id, :users, :type=>"uuid", :key => [:id], :on_delete => :cascade
+      foreign_key :tournament_id, :tournaments, :type=>"uuid", :key => [:id], :on_delete => :cascade
       column :created_at, "timestamp without time zone"
       column :updated_at, "timestamp without time zone"
 
@@ -132,8 +132,8 @@ Sequel.migration do
     create_table(:picks) do
       column :id, "uuid", :default => Sequel::LiteralString.new("uuid_generate_v4()"), :null => false
       column :iid, :serial, :null => false
-      foreign_key :team_id, :teams, :type=>"uuid", :key => [:id]
-      foreign_key :tournament_participant_id, :tournament_participants, :type=>"uuid", :key => [:id]
+      foreign_key :team_id, :teams, :type=>"uuid", :key => [:id], :on_delete => :cascade
+      foreign_key :tournament_participant_id, :tournament_participants, :type=>"uuid", :key => [:id], :on_delete => :cascade
       column :position, "integer", :null => false
       column :created_at, "timestamp without time zone"
       column :updated_at, "timestamp without time zone"

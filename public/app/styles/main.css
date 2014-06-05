@@ -16003,3 +16003,69 @@ a {
   color: #002776;
   background: #fff;
 }
+
+/* line 200, main.scss */
+.content {
+  background: #fff;
+  padding: 1px 20px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow: 5px 5px 10px 0px;
+  box-shadow: 5px 5px 10px 0px;
+}
+/* line 205, main.scss */
+.content h1, .content h2 {
+  text-align: center;
+}
+
+/* line 210, main.scss */
+.standings-table {
+  counter-reset: rowNumber;
+}
+/* line 217, main.scss */
+.standings-table .standings-row {
+  counter-increment: rowNumber;
+}
+/* line 219, main.scss */
+.standings-table .standings-row > td:first-child::before {
+  display: inline-block;
+  content: counter(rowNumber);
+  font-size: 1.5em;
+  margin-right: 0.5em;
+  width: 32px;
+  height: 32px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  color: #fff;
+  background-color: #000;
+  text-align: center;
+}
+/* line 232, main.scss */
+.standings-table .picks {
+  border-spacing: 5px;
+  border-collapse: separate;
+}
+/* line 239, main.scss */
+.standings-table .picks .country-code td {
+  background: gray;
+  color: white;
+  font-size: .75em;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  margin: 10px;
+  text-align: center;
+}
+
+/* line 255, main.scss */
+.user-teams-list-item {
+  padding-bottom: 10px;
+}

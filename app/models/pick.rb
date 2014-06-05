@@ -18,6 +18,14 @@ module Sweepstakes
         tournament_participant && tournament_participant.country_name
       end
 
+      def country_code
+        tournament_participant && tournament_participant.country_code
+      end
+
+      def country_code3
+        tournament_participant && tournament_participant.country_code3
+      end
+
       def flag_url
         tournament_participant && tournament_participant.flag_url
       end
@@ -38,6 +46,8 @@ module Sweepstakes
           team_name:                 team_name,
           tournament_participant_id: tournament_participant_id,
           country_name:              country_name,
+          country_code:              country_code,
+          country_code3:             country_code3,
           position:                  position,
           flag_url:                  flag_url,
           group_name:                group_name

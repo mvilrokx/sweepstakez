@@ -33,7 +33,7 @@ module Sweepstakes
 
       delete '/teams/:team_id/picks/:id', :auth => true do
         pick = Pick.first!(id: params[:id])
-        pick.delete
+        pick.destroy
         json pick
       end
 

@@ -3,10 +3,18 @@ module Sweepstakes
     class TournamentParticipant < Sequel::Model
       many_to_one :group
       many_to_one :country
-      one_to_many :picks, :on_delete => :cascade
+      one_to_many :picks
 
       def country_name
         country && country.country_name
+      end
+
+      def country_code
+        country && country.country_code
+      end
+
+      def country_code3
+        country && country.iso_alpha3
       end
 
       def flag_url

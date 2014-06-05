@@ -194,6 +194,64 @@ a {
     text-decoration: none;
     color: $brazil-flag-blue;
     background: #fff;
-  // padding: 0 0;
   }
+}
+
+.content {
+  background: #fff;
+  padding: 1px 20px;
+  @include border-radius(6px);
+  @include box-shadow(5px 5px 10px 0px);
+  h1, h2 {
+    text-align: center;
+  }
+}
+
+.standings-table {
+  counter-reset: rowNumber;
+  // > thead > tr > th:first-child::before {
+  //   content: "Rank";
+  //   min-width: 1em;
+  //   margin-right: 0.5em;
+  // }
+  .standings-row {
+    counter-increment: rowNumber;
+    > td:first-child::before {
+      display: inline-block;
+      content: counter(rowNumber);
+      font-size: 1.5em;
+      margin-right: 0.5em;
+      width: 32px;
+      height: 32px;
+      @include border-radius(50%);
+      color: #fff;
+      background-color: #000;
+      text-align: center;
+    }
+  }
+  .picks {
+    border-spacing: 5px;
+    border-collapse: separate;
+    .flag {
+
+    }
+    .country-code {
+      td {
+        background: gray;
+        color: white;
+        font-size: .75em;
+        @include border-radius(3px);
+        margin: 10px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.user-teams-list {
+
+}
+
+.user-teams-list-item {
+  padding-bottom: 10px;
 }

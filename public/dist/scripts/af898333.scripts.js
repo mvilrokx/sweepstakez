@@ -315,11 +315,16 @@ app.controller('TeamsCtrl', ['$scope', 'Teams', function ($scope, Teams) {
 
   function init() {
     $scope.teams = Teams.query();
-    console.log($scope.teams);
   }
 
-  $scope.editTeam = function() {
-    $scope.editing = true;
+  $scope.editTeam = function(team) {
+    team.editing = true;
+  };
+
+  $scope.resetTeam = function(team) {
+    var dbFresh = Teams.get({id: team.id});
+    dbFresh.editing = false;
+    $scope.teams[_.findIndex($scope.teams, team)] = dbFresh;
   };
 
   $scope.saveTeam = function(team) {
@@ -331,14 +336,13 @@ app.controller('TeamsCtrl', ['$scope', 'Teams', function ($scope, Teams) {
         $scope.teams.push(response);
       });
     }
-    $scope.editing = false;
-    // Update scope(and thus the view)
+    team.editing = false;
     $scope.team = new Teams();
   };
 
   $scope.deleteTeam = function(team) {
     // Delete from DB
-    Teams.delete(team);
+    Teams.delete({id: team.id});
 
     // Update scope(and thus the view)
     // TODO This should really only be done if the save on DB succeeded

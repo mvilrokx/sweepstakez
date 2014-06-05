@@ -3,7 +3,7 @@ module Sweepstakes
     class Team < Sequel::Model
       many_to_one :user
       many_to_one :tournament
-      one_to_many :picks, :on_delete => :cascade
+      one_to_many :picks
 
       dataset_module do
         def ordered
