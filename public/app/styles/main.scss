@@ -248,10 +248,64 @@ a {
   }
 }
 
+.hiding-form {
+  box-shadow: 0px 10px 10px -8px;
+  z-index: 100;
+  background: #fff;
+}
+
+.new-team {
+  @include border-radius(10px);
+  padding-top: 20px;
+  margin-top: -20px;
+  box-shadow: 0px 5px 10px -5px;
+  @include transition-property(translateY);
+  @include transition-duration(.5s);
+}
+
+.hide-form {
+  @include transition-property(translateY);
+  @include transition-duration(.5s);
+}
+
+.new-team--hidden {
+  @include translateY(-55px);
+}
+
+.new-team-form {
+  margin-bottom: 20px;
+}
+
+.top-buffer { margin-top: 20px; }
+.bottom-buffer { margin-bottom: 20px; }
+.pull-in-left-double { margin-left: 40px; }
+.pull-in-right-double { margin-right: 40px;}
+
+.add-team-action {
+  background: green;
+  color: white;
+  font-size: 24px;
+  padding: 2px 8px;
+  @include border-radius(0 0 14px 14px);
+  @include transition-property(translateY);
+  @include transition-duration(.5s);
+}
+
 .user-teams-list {
 
 }
 
 .user-teams-list-item {
   padding-bottom: 10px;
+  cursor: pointer;
+}
+
+.team-action-link {
+  font-size: 2em;
+  &.positive {
+    color: green;
+  }
+  &.negative {
+    color: red;
+  }
 }

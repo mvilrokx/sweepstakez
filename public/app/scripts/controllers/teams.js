@@ -29,6 +29,7 @@ app.controller('TeamsCtrl', ['$scope', 'Teams', function ($scope, Teams) {
     }
     team.editing = false;
     $scope.team = new Teams();
+    $scope.showForm = false;
   };
 
   $scope.deleteTeam = function(team) {
