@@ -4,7 +4,11 @@ module Sweepstakes
       one_to_many :tournament_participants
 
       def flag_url
-        "http://www.geonames.org/flags/x/#{country_code.downcase}.gif"
+        if iso_alpha3 == "ENG" then
+          "http://flaglane.com/download/english-flag/english-flag-small.png"
+        else
+          "http://www.geonames.org/flags/x/#{country_code.downcase}.gif"
+        end
       end
 
       def as_json(options = nil)
