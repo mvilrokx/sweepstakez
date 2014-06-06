@@ -1,7 +1,6 @@
 module Sweepstakes
   module Routes
     class Tournaments < Base
-      groups = {}
 
       # get '/tournaments/:tournament' do
       #   content_type :json

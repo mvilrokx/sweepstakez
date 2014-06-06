@@ -31,6 +31,14 @@ module Sweepstakes
         status 404
         json error: {type: 'unknown_record'}
       end
+
+      error Sequel::UniqueConstraintViolation do
+        status 404
+        json error: {
+          type: 'duplicate_record',
+          messages: env['sinatra.error'].errors}
+      end
+
     end
   end
 end

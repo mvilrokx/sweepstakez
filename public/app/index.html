@@ -31,8 +31,11 @@
             <img class="app-logo" src="images/FIFA-WORLD-CUP-BRAZIL-2014-LOGO-128x128.png">2014 Brazil World Cup Sweepstakes
           </a>
           <ul class="list-unstyled app-menu">
+            <li ng-if="loggedIn()" title="Your Teams">
+              <a href="#/myteams">Your Teams</a>
+            </li>
             <li ng-if="loggedIn()" title="Sign Out">
-              <a class="social-login" href="/logout"><i class="fa fa-sign-out"></i></a>
+              <a class="" href="/logout">Log Out</i></a>
             </li>
             <li ng-if="loggedIn()" title="Your Teams">
               <a href="#/myteams"><img class="avatar-img" ng-src={{session.avatar_url}}></a>

@@ -150,9 +150,11 @@ a {
   color: #fff;
   padding-left: 30px;
   padding-right: 30px;
+  overflow: auto;
 }
 
 .app-title {
+  float: left;
   color: #fff;
   font-size: 24px;
   &:hover {
@@ -291,11 +293,16 @@ a {
   @include transition-duration(.5s);
 }
 
+.delete-team-icon {
+  margin-right: 30px;
+}
+
 .user-teams-list {
 
 }
 
 .user-teams-list-item {
+  overflow: auto;
   padding-bottom: 10px;
   cursor: pointer;
 }

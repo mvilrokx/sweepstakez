@@ -14,6 +14,10 @@ module Sweepstakes
         end
       end
 
+      def validate
+        validates_unique [:team_id, :tournament_participant_id]
+      end
+
       def country_name
         tournament_participant && tournament_participant.country_name
       end

@@ -8,7 +8,10 @@ Sequel.extension :core_extensions
 Sequel.extension :pg_array
 Sequel.extension :pg_array_ops
 
+Sequel::Model.raise_on_save_failure = true
+
 Sequel::Model.plugin :timestamps
+Sequel::Model.plugin :validation_helpers
 Sequel::Model.plugin :serialization
 
 Sequel::Plugins::Serialization.register_format(:json,
@@ -20,6 +23,8 @@ Sequel::Plugins::Serialization.register_format(:pg_uuid_array,
   lambda{|v| Sequel::Postgres::PGArray.new(v, :uuid) },
   lambda{|v| Sequel::Postgres::PGArray::Parser.new(v).parse }
 )
+
+Sequel::Postgres::PGArray.register('uuid', :type_symbol => :string)
 
 module Sweepstakes
   module Models

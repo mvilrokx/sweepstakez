@@ -43,8 +43,8 @@
                 <div class="col-lg-4"> {{team.tournament_name}} </div>
               </span>
               <div class="col-lg-4">
-                <a ng-click="deleteTeam(team)">X</a>
-                <a ng-href="#/myteams/{{team.id}}/mypicks">Picks</a>
+                <a ng-click="deleteTeam(team)" title="delete team"><i class="fa fa-trash-o delete-team-icon"></i></a>
+                <a ng-href="#/myteams/{{team.id}}/mypicks">Got to Picks</a>
               </div>
             </span>
             <span ng-if="team.editing">
