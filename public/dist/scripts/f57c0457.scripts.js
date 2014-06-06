@@ -422,12 +422,20 @@ app.controller('PicksCtrl', ['$scope', '$routeParams', 'Picks', 'Teams', functio
       addPick(existingPick, true);
     }
 
-    $scope.picks[pick.position - 1] = pick;
-    pick.teamId = $routeParams.teamId;
     if (update) {
-      Picks.update(pick);
+      Picks.update(pick, function(response){
+        console.log(response);
+      });
     } else {
-      pick.$save();
+      pick.$save(
+        function success(){
+          $scope.picks[pick.position - 1] = pick;
+          pick.teamId = $routeParams.teamId;
+        },
+        function error(response){
+          console.log(response);
+        }
+      );
     }
   }
 
