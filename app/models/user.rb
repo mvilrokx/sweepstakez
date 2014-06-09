@@ -4,6 +4,9 @@ require 'bcrypt'
 module Sweepstakes
   module Models
     class User < Sequel::Model
+      one_to_many :teams, :on_delete => :cascade
+      many_to_one :tenant
+
       dataset_module do
         def ordered
           order(:created_at.desc)
@@ -16,9 +19,15 @@ module Sweepstakes
             {~:github => nil, :github => attrs[:github]}
           )
         end
+
+        def tenant
+          where(:tenant_id => Tenant.current_id)
+        end
       end
 
-      one_to_many :teams, :on_delete => :cascade
+      set_dataset(self.tenant) # default scope!
+
+
       # one_to_many :posts, :on_delete => :cascade
       # one_to_many :comments, :on_delete => :cascade
 
@@ -37,7 +46,7 @@ module Sweepstakes
 
       set_allowed_columns :name, :handle, :email,
                           :about, :url, :twitter,
-                          :registered, :manifesto
+                          :registered, :manifesto, :tenant_id
 
       def self.find_by_uid(uid)
         first(uid: uid)
@@ -46,6 +55,8 @@ module Sweepstakes
       def self.from_auth!(auth)
         auth           = auth.with_indifferent_access
         user           = find_by_uid(auth[:uid]) || self.new
+
+        user.tenant_id ||= Tenant.current_id
 
         user.uid       = auth[:uid]
         user.provider  = auth[:provider]

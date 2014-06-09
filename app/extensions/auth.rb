@@ -11,6 +11,10 @@ module Sweepstakes
         #   session[:pending_invite_id] = invite && invite.id
         # end
 
+        def current_tenant
+          tenant = Tenant.where(subdomain: request.host.split('.')[0]).first!
+        end
+
         def current_user_from_session
           user_id = session[:user_id]
           user_id && User[user_id]

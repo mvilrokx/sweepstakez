@@ -14,10 +14,12 @@
 
 /* line 16, mySelections.scss */
 .my-selection-list, .user-picks-list {
-  font-size: 1.5em;
+  font-size: 1.2em;
+  list-style-position: inside;
+  padding-left: 0;
 }
 
-/* line 20, mySelections.scss */
+/* line 22, mySelections.scss */
 .my-selection-list-item, .user-picks-list-item {
   padding: 10px;
   margin: 10px;
@@ -30,46 +32,46 @@
   border: 2px solid #449d44;
 }
 
-/* line 29, mySelections.scss */
+/* line 31, mySelections.scss */
 .my-selection-list-item-empty {
   background: #f9f9f9;
   border: 2px dashed transparent;
 }
 
-/* line 35, mySelections.scss */
+/* line 37, mySelections.scss */
 .ora-drag-start {
   opacity: .5;
 }
 
-/* line 41, mySelections.scss */
+/* line 43, mySelections.scss */
 .ora-target.ora-drag-enter.my-selection-list-item-empty,
 .ora-target.ora-drag-enter.user-picks-list-item-empty {
   background: #ccc;
   border: 2px inset #aaa;
 }
 
-/* line 48, mySelections.scss */
+/* line 50, mySelections.scss */
 .ora-target.ora-drag-enter:not(.my-selection-list-item-empty),
 .ora-target.ora-drag-enter:not(.user-picks-list-item-empty) {
   opacity: .9;
   border: 2px inset #449d44;
 }
 
-/* line 55, mySelections.scss */
+/* line 57, mySelections.scss */
 .ora-target.my-selection-list-item-empty,
 .ora-target.user-picks-list-item-empty {
   background: #eee;
   border: 2px dashed #aaa;
 }
 
-/* line 62, mySelections.scss */
+/* line 64, mySelections.scss */
 .ora-target:not(.my-selection-list-item-empty),
 .ora-target:not(.user-picks-list-item-empty) {
   opacity: .8;
   border: 2px dashed #449d44;
 }
 
-/* line 67, mySelections.scss */
+/* line 69, mySelections.scss */
 .group-header {
   width: 100%;
   display: block;

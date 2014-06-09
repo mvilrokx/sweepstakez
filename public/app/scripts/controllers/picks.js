@@ -54,8 +54,8 @@ app.controller('PicksCtrl', ['$scope', '$routeParams', 'Picks', 'Teams', functio
     update = update || false;
 
     if (pick.position > maxSelections) {
+      // Update DB
       Picks.delete({id: pick.id, teamId: $routeParams.teamId});
-      console.log($scope.picks.length);
       return;
     }
 
@@ -67,8 +67,9 @@ app.controller('PicksCtrl', ['$scope', '$routeParams', 'Picks', 'Teams', functio
     }
 
     if (update) {
-      Picks.update(pick, function(response){
-        console.log(response);
+
+      Picks.update({id: pick.id, teamId: $routeParams.teamId}, pick, function(){
+        $scope.picks[pick.position - 1] = pick;
       });
     } else {
       pick.$save(
@@ -117,9 +118,12 @@ app.controller('PicksCtrl', ['$scope', '$routeParams', 'Picks', 'Teams', functio
     // I need $apply in order for the view to update because drag/drop events are not natively detected up by Angular.
     $scope.$apply(function () {
       if (dragEl.classList.contains('group-list-item')) { // dragged from groups
-        // console.log(['dragEl',dragEl]);
-        var newPick = new Picks({tournament_participant_id: dragEl.id, teamId: $routeParams.teamId, position: liIndex(dropEl)});
-        addPick(newPick);
+
+        // Check to make sure the country hasn't already been picked
+        if (_.findIndex($scope.picks, { 'tournament_participant_id': dragEl.id }) === -1) {
+          var newPick = new Picks({tournament_participant_id: dragEl.id, teamId: $routeParams.teamId, position: liIndex(dropEl)});
+          addPick(newPick);
+        }
       } else { // Swap picks
         if (dragEl.dataset.pickId) {
           Picks.update({id: dragEl.dataset.pickId, teamId: $routeParams.teamId, position: liIndex(dropEl)});

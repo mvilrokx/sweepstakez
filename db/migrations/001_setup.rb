@@ -9,6 +9,21 @@ Sequel.migration do
       CREATE EXTENSION IF NOT EXISTS "uuid-ossp" WITH SCHEMA public;
     }
 
+    create_table(:tenants) do
+      column :id, "uuid", :default=>Sequel::LiteralString.new("uuid_generate_v4()"), :null=>false
+      column :iid, :serial, :null=>false
+      column :name, "text"
+      column :subdomain, "text"
+      column :created_at, "timestamp without time zone"
+      column :updated_at, "timestamp without time zone"
+
+      primary_key [:id]
+
+      index :name, :unique=>true
+      index :subdomain, :unique=>true
+      index :iid, :unique=>true
+    end
+
     create_table(:tournaments) do
       column :id, "uuid", :default=>Sequel::LiteralString.new("uuid_generate_v4()"), :null=>false
       column :iid, :serial, :null=>false
@@ -102,7 +117,8 @@ Sequel.migration do
       column :updated_at, "timestamp without time zone"
       column :admin, "boolean", :default => false
       column :registered, "boolean"
-      foreign_key :parent_id, :users, :type=>"uuid", :key => [:id]
+      # foreign_key :parent_id, :users, :type=>"uuid", :key => [:id]
+      foreign_key :tenant_id, :tenants, :type=>"uuid", :key => [:id], :on_delete => :cascade
       column :invites_count, "integer", :default => 0
       column :github, "text"
       column :secret, "text"
@@ -121,6 +137,8 @@ Sequel.migration do
       column :name, "text"
       foreign_key :user_id, :users, :type=>"uuid", :key => [:id], :on_delete => :cascade
       foreign_key :tournament_id, :tournaments, :type=>"uuid", :key => [:id], :on_delete => :cascade
+      foreign_key :tenant_id, :tenants, :type=>"uuid", :key => [:id], :on_delete => :cascade
+      column :paid, "boolean", :default => false
       column :created_at, "timestamp without time zone"
       column :updated_at, "timestamp without time zone"
 
@@ -134,6 +152,7 @@ Sequel.migration do
       column :iid, :serial, :null => false
       foreign_key :team_id, :teams, :type=>"uuid", :key => [:id], :on_delete => :cascade
       foreign_key :tournament_participant_id, :tournament_participants, :type=>"uuid", :key => [:id], :on_delete => :cascade
+      foreign_key :tenant_id, :tenants, :type=>"uuid", :key => [:id], :on_delete => :cascade
       column :position, "integer", :null => false
       column :created_at, "timestamp without time zone"
       column :updated_at, "timestamp without time zone"

@@ -10,7 +10,18 @@
     </div>
 
     <div class="row">
-      <div class="col-lg-8">
+      <!-- Top Draw -->
+      <div ng-controller="TournamentsCtrl" class="col-lg-3">
+        <div class="group" ng-repeat="group in tournament.groups" ng-if="$index<4" >
+          <span class="group-header">Group {{group.name}}</span>
+          <ul class="group-list list-unstyled">
+            <li class="group-list-item" ora-draggable="" ng-repeat="participant in group.tournament_participants" id="{{participant.id}}">  <img ng-src="{{participant.country.flag_url}}" width="30px" height="20px"/> {{participant.country_name | uppercase}}
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
         <ol class="user-picks-list">
           <li data-pick-id="{{pick.id}}" data-tournament-participant-id="{{pick.tournament_participant_id}}" class="user-picks-list-item" ng-class="{'user-picks-list-item-empty':!pick.tournament_participant_id}" ora-draggable="" on-drop="dropped(dragEl, dropEl)" ora-drop-target="" ng-repeat="pick in picks track by $index | orderBy:position">
             <span ng-if="pick.tournament_participant_id"><img ng-src="{{pick.flag_url}}" width="30px" height="20px"/> {{pick.country_name}} - (Group {{pick.group_name}})</span>
@@ -29,8 +40,9 @@
       </div>
     </div> -->
 
-      <div ng-controller="TournamentsCtrl" class="col-lg-4">
-        <div ng-repeat="group in tournament.groups">
+      <!-- Bottom Draw -->
+      <div ng-controller="TournamentsCtrl" class="col-lg-3">
+        <div class="group" ng-repeat="group in tournament.groups" ng-if="$index>=4" >
           <span class="group-header">Group {{group.name}}</span>
           <ul class="group-list list-unstyled">
             <li class="group-list-item" ora-draggable="" ng-repeat="participant in group.tournament_participants" id="{{participant.id}}">  <img ng-src="{{participant.country.flag_url}}" width="30px" height="20px"/> {{participant.country_name | uppercase}}
@@ -38,6 +50,7 @@
           </ul>
         </div>
       </div>
+
     </div>
   </div>
 

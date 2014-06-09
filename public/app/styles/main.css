@@ -15892,6 +15892,7 @@ html, body {
 /* line 111, main.scss */
 .page-wrap {
   height: auto !important;
+  height: 100%;
   min-height: 100%;
   background-repeat: no-repeat;
   margin-bottom: -40px;
@@ -16053,7 +16054,12 @@ a {
   border-spacing: 5px;
   border-collapse: separate;
 }
-/* line 241, main.scss */
+/* line 240, main.scss */
+.standings-table .picks .flag-img {
+  -webkit-box-shadow: 0px 2px 5px 0px;
+  box-shadow: 0px 2px 5px 0px;
+}
+/* line 244, main.scss */
 .standings-table .picks .country-code td {
   background: gray;
   color: white;
@@ -16067,14 +16073,14 @@ a {
   text-align: center;
 }
 
-/* line 253, main.scss */
+/* line 256, main.scss */
 .hiding-form {
   box-shadow: 0px 10px 10px -8px;
   z-index: 100;
   background: #fff;
 }
 
-/* line 259, main.scss */
+/* line 262, main.scss */
 .new-team {
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -16090,7 +16096,7 @@ a {
   transition-duration: 0.5s;
 }
 
-/* line 268, main.scss */
+/* line 271, main.scss */
 .hide-form {
   -webkit-transition-property: translateY;
   transition-property: translateY;
@@ -16098,7 +16104,7 @@ a {
   transition-duration: 0.5s;
 }
 
-/* line 273, main.scss */
+/* line 276, main.scss */
 .new-team--hidden {
   -webkit-transform: translateY(-55px);
   -moz-transform: translateY(-55px);
@@ -16107,32 +16113,32 @@ a {
   transform: translateY(-55px);
 }
 
-/* line 277, main.scss */
+/* line 280, main.scss */
 .new-team-form {
   margin-bottom: 20px;
 }
 
-/* line 281, main.scss */
+/* line 284, main.scss */
 .top-buffer {
   margin-top: 20px;
 }
 
-/* line 282, main.scss */
+/* line 285, main.scss */
 .bottom-buffer {
   margin-bottom: 20px;
 }
 
-/* line 283, main.scss */
+/* line 286, main.scss */
 .pull-in-left-double {
   margin-left: 40px;
 }
 
-/* line 284, main.scss */
+/* line 287, main.scss */
 .pull-in-right-double {
   margin-right: 40px;
 }
 
-/* line 286, main.scss */
+/* line 289, main.scss */
 .add-team-action {
   background: green;
   color: white;
@@ -16149,27 +16155,27 @@ a {
   transition-duration: 0.5s;
 }
 
-/* line 296, main.scss */
+/* line 299, main.scss */
 .delete-team-icon {
   margin-right: 30px;
 }
 
-/* line 304, main.scss */
+/* line 307, main.scss */
 .user-teams-list-item {
   overflow: auto;
   padding-bottom: 10px;
   cursor: pointer;
 }
 
-/* line 310, main.scss */
+/* line 313, main.scss */
 .team-action-link {
   font-size: 2em;
 }
-/* line 312, main.scss */
+/* line 315, main.scss */
 .team-action-link.positive {
   color: green;
 }
-/* line 315, main.scss */
+/* line 318, main.scss */
 .team-action-link.negative {
   color: red;
 }

@@ -7,7 +7,8 @@ timestamp = Time.now
 tz = TZInfo::Timezone.get('America/Sao_Paulo')
 
 # Clean Up
-TournamentParticipant.where('created_at < ?', Time.now).delete if Group.all.count > 0
+Tenant.where('created_at < ?', Time.now).delete if Tenant.all.count > 0
+TournamentParticipant.where('created_at < ?', Time.now).delete if TournamentParticipant.all.count > 0
 Group.where('created_at < ?', Time.now).delete if Group.all.count > 0
 Tournament.where('created_at < ?', Time.now).delete if Tournament.all.count > 0
 Country.where('created_at < ?', Time.now).delete if Country.all.count > 0
@@ -150,3 +151,6 @@ tournamentFiles.each do |tournamentFile|
   end
 end
 
+Tenant.create(name: "UX", subdomain: "ux")
+Tenant.create(name: "HCM", subdomain: "hcm")
+Tenant.create(name: "KineMed", subdomain: "kinemed")

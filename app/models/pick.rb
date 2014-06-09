@@ -3,6 +3,7 @@ module Sweepstakes
     class Pick < Sequel::Model
       many_to_one :team
       many_to_one :tournament_participant
+      many_to_one :tenant
 
       dataset_module do
         def ordered
@@ -12,7 +13,13 @@ module Sweepstakes
         def for_user(user)
           where(:user_id => user.id)
         end
+
+        def for_tenant(tenant)
+          where(:tenant_id => tenant.id)
+        end
       end
+
+      # set_dataset(self.tenant) # default scope!
 
       def validate
         validates_unique [:team_id, :tournament_participant_id]

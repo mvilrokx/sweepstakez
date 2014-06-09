@@ -3,8 +3,10 @@ module Sweepstakes
     class Picks < Base
 
       get '/teams/:team_id/picks', :auth => true do
-        team = Team.first!(id: params[:team_id])
+        ap current_tenant
+        team = Team.for_tenant(current_tenant).first!(id: params[:team_id])
         picks = team.picks_dataset
+        ap picks.count
         json picks
       end
 
@@ -15,6 +17,8 @@ module Sweepstakes
 
       post '/teams/:team_id/picks', :auth => true do
         pick      = Pick.new
+        pick.tenant = current_tenant
+
         pick.set_fields(params, [:team_id, :tournament_participant_id, :position])
         pick.save
         json pick

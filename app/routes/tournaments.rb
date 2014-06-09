@@ -18,8 +18,9 @@ module Sweepstakes
       # end
 
       get '/tournaments/:name/ranking' do
+        ap current_tenant
         tournament = Tournament.where(name: params[:name]).first!
-        json tournament, teams: :teams
+        json tournament, teams: current_tenant
       end
 
       get '/tournaments/:name' do

@@ -8,7 +8,7 @@ Sequel.extension :core_extensions
 Sequel.extension :pg_array
 Sequel.extension :pg_array_ops
 
-Sequel::Model.raise_on_save_failure = false
+Sequel::Model.raise_on_save_failure = true
 
 Sequel::Model.plugin :timestamps
 Sequel::Model.plugin :validation_helpers
@@ -28,6 +28,7 @@ Sequel::Postgres::PGArray.register('uuid', :type_symbol => :string)
 
 module Sweepstakes
   module Models
+    autoload :Tenant, 'app/models/tenant'
     autoload :User, 'app/models/user'
     autoload :Tournament, 'app/models/tournament'
     autoload :Group, 'app/models/group'

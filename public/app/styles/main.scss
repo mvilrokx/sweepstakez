@@ -110,7 +110,7 @@ $brazil-flag-blue: #002776;
 
 .page-wrap {
   height:auto !important;
-  // height:100%;
+  height:100%;
   min-height:100%;
   background-repeat: no-repeat;
   margin-bottom: -40px;
@@ -234,8 +234,11 @@ a {
   .picks {
     border-spacing: 5px;
     border-collapse: separate;
-    .flag {
+    .flags {
 
+    }
+    .flag-img {
+      @include box-shadow(0px 2px 5px 0px);
     }
     .country-code {
       td {

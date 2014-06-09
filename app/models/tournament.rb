@@ -27,7 +27,7 @@ module Sweepstakes
         if options[:teams] then
           result.delete(:groups)
           result.delete(:host_countries)
-          result.merge!(teams: teams)
+          result.merge!(teams: Team.for_tenant(options[:teams]))
         end
         result
       end

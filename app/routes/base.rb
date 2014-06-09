@@ -14,6 +14,10 @@ module Sweepstakes
         set :show_exceptions, :after_handler
       end
 
+      before do
+        Tenant.current_id = Tenant.where(subdomain: request.host.split('.')[0]).first!.id
+      end
+
       register Extensions::API
       # register Extensions::Assets
       register Extensions::Auth

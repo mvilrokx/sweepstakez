@@ -5,7 +5,7 @@ module Sweepstakes
 
       def flag_url
         if iso_alpha3 == "ENG" then
-          "http://flaglane.com/download/english-flag/english-flag-small.png"
+          "images/english-flag-small.png"
         else
           "http://www.geonames.org/flags/x/#{country_code.downcase}.gif"
         end

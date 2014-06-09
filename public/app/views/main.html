@@ -32,9 +32,9 @@
         <td>
           <table class="picks">
             <tbody>
-              <tr class="flag">
+              <tr class="flags">
                 <td ng-repeat="pick in team.picks| orderBy:'position'">
-                  <img ng-src="{{pick.flag_url}}" width="30px" height="20px" alt="{{pick.country_name}}" title="{{pick.country_name}}">
+                  <img class="flag-img" ng-src="{{pick.flag_url}}" width="30px" height="20px" alt="{{pick.country_name}}" title="{{pick.country_name}}">
                 </td>
               </tr>
               <tr class="country-code">

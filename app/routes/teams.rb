@@ -4,7 +4,8 @@ module Sweepstakes
 
       # Query All
       get '/teams', :auth => true do
-        json Team.for_user(current_user)
+        json Team.for_user(current_user).for_tenant(current_tenant)
+        # json Team.for_user(current_user)
       end
 
       # Query one
@@ -12,7 +13,7 @@ module Sweepstakes
         if current_user.admin?
           team = Team.first!(id: params[:id])
         else
-          team = Team.for_user(current_user).first!(id: params[:id])
+          team = Team.for_user(current_user).for_tenant(current_tenant).first!(id: params[:id])
         end
         json team
       end
@@ -21,7 +22,7 @@ module Sweepstakes
       post '/teams', :auth => true do
         team      = Team.new
         team.user = current_user
-        puts params
+        team.tenant = current_tenant
 
         team.tournament_id = Tournament.active.first[:id]
 
@@ -38,7 +39,7 @@ module Sweepstakes
         if current_user.admin?
           team = Team.first!(id: params[:id])
         else
-          team = Team.for_user(current_user).first!(id: params[:id])
+          team = Team.for_user(current_user).for_tenant(current_tenant).first!(id: params[:id])
         end
         team.update(name: params[:name])
 
@@ -50,7 +51,7 @@ module Sweepstakes
         if current_user.admin?
           team = Team.first!(id: params[:id])
         else
-          team = Team.for_user(current_user).first!(id: params[:id])
+          team = Team.for_user(current_user).for_tenant(current_tenant).first!(id: params[:id])
         end
         # team.delete
         team.destroy

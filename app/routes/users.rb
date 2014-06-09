@@ -4,6 +4,7 @@ module Sweepstakes
 
       get '/auth/:provider/callback' do
         self.current_user = User.from_auth!(env['omniauth.auth'])
+        # if self.current_user && self.current_user.tenant
 
         # if pending_invite
         #   current_user.activate!(pending_invite)
