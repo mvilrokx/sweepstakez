@@ -3,10 +3,8 @@ module Sweepstakes
     class Users < Base
 
       get '/auth/:provider/callback' do
-        puts "calling self.from_auth!"
 
         self.current_user = User.from_auth!(env['omniauth.auth'])
-        ap self.current_user
         # if self.current_user && self.current_user.tenant
 
         # if pending_invite

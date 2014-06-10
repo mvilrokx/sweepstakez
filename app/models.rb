@@ -36,5 +36,6 @@ module Sweepstakes
     autoload :Country, 'app/models/country'
     autoload :Team, 'app/models/team'
     autoload :Pick, 'app/models/pick'
+    autoload :Fixture, 'app/models/fixture'
   end
 end

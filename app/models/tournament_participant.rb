@@ -4,6 +4,8 @@ module Sweepstakes
       many_to_one :group
       many_to_one :country
       one_to_many :picks
+      one_to_many :home_team, :class => Fixture, :key => :home_tournament_participant_id
+      one_to_many :away_team, :class => Fixture, :key => :away_tournament_participant_id
 
       def country_name
         country && country.country_name

@@ -66,8 +66,6 @@ module Sweepstakes
         user.handle  ||= auth[:info][:nickname]
         user.about   ||= auth[:info][:description]
 
-        ap user
-
         user.save
         user
       end
