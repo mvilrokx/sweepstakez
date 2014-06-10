@@ -49,6 +49,10 @@ module Sweepstakes
         tournament_participant && tournament_participant.group_name
       end
 
+      def points
+        tournament_participant.points * (9 - position)
+      end
+
       def as_json(options = nil)
         user = (options || {})[:user]
         {
@@ -61,7 +65,8 @@ module Sweepstakes
           country_code3:             country_code3,
           position:                  position,
           flag_url:                  flag_url,
-          group_name:                group_name
+          group_name:                group_name,
+          points:                    points
         }
       end
 

@@ -32,7 +32,7 @@
           </a>
           <ul class="list-unstyled app-menu">
             <li ng-if="loggedIn()" title="Your Teams">
-              <a href="#/myteams">Your Teams</a>
+              <a ng-class="{ active: isActive('/myteams')}" href="#/myteams">Your Teams</a>
             </li>
             <li ng-if="loggedIn()" title="Sign Out">
               <a class="" href="/logout">Log Out</i></a>
@@ -53,7 +53,9 @@
         </div>
 
         <!-- Add your site or application content here -->
-        <div class="container" ng-view=""></div>
+        <div class="container">
+          <div class="view-animate" ng-view=""></div>
+        </div>
 
       </div> <!-- END ng-controller="SessionsCtrl" -->
 

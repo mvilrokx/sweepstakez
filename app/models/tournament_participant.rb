@@ -27,6 +27,17 @@ module Sweepstakes
         group && group.name
       end
 
+      def points
+        points = 0
+        home_team.each do |fixture|
+          points = points + (fixture.home_team_points||0)
+        end
+        away_team.each do |fixture|
+          points = points + (fixture.away_team_points||0)
+        end
+        points
+      end
+
       def as_json(options = nil)
         user = (options || {})[:user]
         {

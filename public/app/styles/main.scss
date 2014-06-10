@@ -104,6 +104,113 @@ html, body {
   height: 100%; /* needed for container min-height */
 }
 
+
+// .view-animate {
+//   bottom: 0;
+//   position: relative;
+//   text-align: center;
+//   top: 0;
+//   width: 100%;
+// }
+
+.view-animate.ng-enter {
+  $enter-anim-length: 0.25s;
+  $enter-anim-delay: 0.25s;
+  $enter-easing-function: ease-in;
+  $enter-animation: fadeIn;
+  -webkit-animation: $enter-animation $enter-anim-length $enter-anim-delay both $enter-easing-function; z-index: 8888;
+  -moz-animation: $enter-animation $enter-anim-length $enter-anim-delay both $enter-easing-function; z-index: 8888;
+  -o-animation: $enter-animation $enter-anim-length $enter-anim-delay both $enter-easing-function; z-index: 8888;
+  animation: $enter-animation $enter-anim-length $enter-anim-delay both $enter-easing-function; z-index: 8888;
+}
+.view-animate.ng-leave {
+  $leave-anim-length: .25s;
+  $enter-anim-delay: 0s;
+  $leave-easing-function: ease-in;
+  $leave-animation: fadeOut;
+  -webkit-animation: $leave-animation $leave-anim-length $enter-anim-delay both $leave-easing-function; z-index: 9999;
+  -moz-animation: $leave-animation $leave-anim-length $enter-anim-delay both $leave-easing-function; z-index: 9999;
+  -o-animation: $leave-animation $leave-anim-length $enter-anim-delay both $leave-easing-function; z-index: 9999;
+  animation: $leave-animation $leave-anim-length $enter-anim-delay both $leave-easing-function; z-index: 9999;
+}
+
+/* ANIMATIONS
+============================================================================= */
+
+/* leaving animations ----------------------------------------- */
+/* rotate and fall */
+@keyframes rotateFall {
+  0%    { transform: rotateZ(0deg); }
+  20%   { transform: rotateZ(10deg); animation-timing-function: ease-out; }
+  40%   { transform: rotateZ(17deg); }
+  60%   { transform: rotateZ(16deg); }
+  100%  { transform: translateY(100%) rotateZ(17deg); }
+}
+
+/* slide in from the bottom */
+@keyframes slideOutLeft {
+  to    { transform: translateX(-100%); }
+}
+@-moz-keyframes slideOutLeft {
+  to    { transform: translateX(-100%); }
+}
+@-webkit-keyframes slideOutLeft {
+  to    { transform: translateX(-100%); }
+}
+
+/* rotate out newspaper */
+@keyframes rotateOutNewspaper {
+  to    { transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; }
+}
+
+/* entering animations --------------------------------------- */
+/* scale up */
+@keyframes scaleUp {
+  from  { opacity: 0.3; -webkit-transform: scale(0.8); }
+}
+@-moz-keyframes scaleUp {
+  from  { opacity: 0.3; -webkit-transform: scale(0.8); }
+}
+@-webkit-keyframes scaleUp {
+  from  { opacity: 0.3; -webkit-transform: scale(0.8); }
+}
+
+/* slide in from the right */
+@keyframes slideInRight {
+  from  { transform:translateX(100%); }
+  to    { transform: translateX(0); }
+}
+
+/* slide in from the bottom */
+@keyframes slideInUp {
+  from  { transform:translateY(100%); }
+  to    { transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+}
+@-moz-keyframes fadeIn {
+  from { opacity: 0; }
+}
+@-webkit-keyframes fadeIn {
+  from { opacity: 0; }
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; }
+}
+@-moz-keyframes fadeOut {
+  to { opacity: 0; }
+}
+@-webkit-keyframes fadeOut {
+  to { opacity: 0; }
+}
+
+
+
+
+
 $brazil-flag-green: #009b3a;
 $brazil-flag-yellow: #fedf00;
 $brazil-flag-blue: #002776;
@@ -173,6 +280,9 @@ a {
   li {
     float: left;
     padding-right: 10px;
+    a.active {
+      color: white;
+    }
   }
 }
 

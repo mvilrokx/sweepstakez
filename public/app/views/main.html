@@ -3,6 +3,11 @@
   <p class="lead">
     To the 2014 World Cup edition of the UX Sweepstakes.
   </p>
+
+  <p ng-if="loggedIn()">
+    <a class="btn btn-lg btn-success" href="#/myteams">Manage Your Teams!</a>
+  </p>
+
   <p ng-if="!loggedIn()">
     To participate, please log on using one of the provided services (<a href="/auth/twitter">Twitter</a>, <a href="/auth/facebook">Facebook</a> or <a href="/auth/github">Github</a>) and assemble your team(s).
   </p>
@@ -25,7 +30,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="standings-row" ng-repeat="team in ranking.teams">
+      <tr class="standings-row" ng-repeat="team in ranking.teams| orderBy:'-points'">
         <td></td>
         <td>{{team.name}}</td>
         <td>{{team.user.name}}</td>
@@ -34,7 +39,7 @@
             <tbody>
               <tr class="flags">
                 <td ng-repeat="pick in team.picks| orderBy:'position'">
-                  <img class="flag-img" ng-src="{{pick.flag_url}}" width="30px" height="20px" alt="{{pick.country_name}}" title="{{pick.country_name}}">
+                  <img class="flag-img" ng-src="{{pick.flag_url}}" width="30px" height="20px" alt="{{pick.country_name}}" title="{{pick.country_name}}:{{pick.points}}">
                 </td>
               </tr>
               <tr class="country-code">

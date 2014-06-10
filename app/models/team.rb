@@ -33,39 +33,9 @@ module Sweepstakes
       def points
         points = 0
         picks.each do |pick|
-          pick.tournament_participant.home_team.each do |fixture|
-            if fixture.result
-              # Each time one of your teams scores a goal, they score 1 point for you.
-              points = points + fixture.result[:home_score]
-              # Each win scores 3 points for you.
-              if fixture.result[:home_score] > fixture.result[:away_score]
-                points = points + 3
-              end
-              # In the preliminary group stage, a draw earns 1 point for you.
-              if fixture.result[:home_score] = fixture.result[:away_score] && fixture.result[:group_stage] = 'Y'
-                points = points + 1
-              end
-            end
-          end
-          pick.tournament_participant.away_team.each do |fixture|
-            if fixture.result
-              # Each time one of your teams scores a goal, they score 1 point for you.
-              points = points + fixture.result[:away_score]
-              # Each win scores 3 points for you.
-              if fixture.result[:away_score] > fixture.result[:home_score]
-                points = points + 3
-              end
-              # In the preliminary group stage, a draw earns 1 point for you.
-              if fixture.result[:away_score] = fixture.result[:home_score] && fixture.result[:group_stage] = 'Y'
-                points = points + 1
-              end
-            end
-          end
-          # This is then multiplied up by the rank chosen.
-          points = points * pick.position
+          points = points + pick.points
         end
         points
-        # Goals scored in a penalty shoot out do not count - silver and golden goals do count. There are no other special bonuses.
       end
 
       def as_json(options = nil)

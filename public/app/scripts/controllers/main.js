@@ -7,7 +7,6 @@ app.controller('MainCtrl', ['$scope', 'rankingService', function ($scope, rankin
 
   rankingService.getRanking('2014 FIFA WORLD CUP').then(function(ranking){
     $scope.ranking = ranking;
-    console.log($scope.ranking);
   });
 
 

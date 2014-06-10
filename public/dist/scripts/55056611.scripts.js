@@ -217,7 +217,6 @@ app.controller('MainCtrl', ['$scope', 'rankingService', function ($scope, rankin
 
   rankingService.getRanking('2014 FIFA WORLD CUP').then(function(ranking){
     $scope.ranking = ranking;
-    console.log($scope.ranking);
   });
 
 
@@ -233,7 +232,7 @@ app.controller('MainCtrl', ['$scope', 'rankingService', function ($scope, rankin
 
 'use strict';
 
-app.controller('SessionsCtrl', ['$scope', 'sessionService', function ($scope, sessionService) {
+app.controller('SessionsCtrl', ['$scope', '$location', 'sessionService', function ($scope, $location, sessionService) {
   // $scope.session = sessionService.getCurrentUser();
 
   sessionService.getCurrentUser().then(function(session){
@@ -242,6 +241,10 @@ app.controller('SessionsCtrl', ['$scope', 'sessionService', function ($scope, se
 
   $scope.loggedIn = function(){
     return sessionService.isAuthenticated();
+  };
+
+  $scope.isActive = function (viewLocation) {
+    return viewLocation === $location.path();
   };
 
 }]);
