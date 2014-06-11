@@ -68,7 +68,7 @@ app.controller('PicksCtrl', ['$scope', '$routeParams', 'Picks', 'Teams', functio
 
     if (update) {
 
-      Picks.update({id: pick.id, teamId: $routeParams.teamId}, pick, function(){
+      Picks.update({id: pick.id, teamId: $routeParams.teamId}, pick, function success(){
         $scope.picks[pick.position - 1] = pick;
       });
     } else {
@@ -126,12 +126,19 @@ app.controller('PicksCtrl', ['$scope', '$routeParams', 'Picks', 'Teams', functio
         }
       } else { // Swap picks
         if (dragEl.dataset.pickId) {
-          Picks.update({id: dragEl.dataset.pickId, teamId: $routeParams.teamId, position: liIndex(dropEl)});
+          Picks.update({id: dragEl.dataset.pickId, teamId: $routeParams.teamId, position: liIndex(dropEl)}, function success(){
+            swapPicks(dragEl, dropEl);
+          }, function error(response){
+            console.log(response);
+          });
         }
         if (dropEl.dataset.pickId) {
-          Picks.update({id: dropEl.dataset.pickId, teamId: $routeParams.teamId, position: liIndex(dragEl)});
+          Picks.update({id: dropEl.dataset.pickId, teamId: $routeParams.teamId, position: liIndex(dragEl)}, function success(){
+            swapPicks(dragEl, dropEl);
+          }, function error(response){
+            console.log(response);
+          });
         }
-        swapPicks(dragEl, dropEl);
       }
     });
   };

@@ -19,15 +19,24 @@ module Sweepstakes
           where(:tenant_id => tenant.id)
         end
 
-        # def tenant
-        #   where(:tenant_id => Tenant.current_id)
-        # end
       end
 
-      # set_dataset(self.tenant) # default scope!
+      def validate
+        super
+        errors.add(:name, 'tournament already started') if tournament.started?
+      end
+
+      def before_destroy
+        super
+        return false if tournament.started?
+      end
 
       def tournament_name
         tournament && tournament.name
+      end
+
+      def tournament_started?
+        tournament && tournament.started?
       end
 
       def points

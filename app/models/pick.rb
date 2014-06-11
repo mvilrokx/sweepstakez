@@ -19,10 +19,15 @@ module Sweepstakes
         end
       end
 
-      # set_dataset(self.tenant) # default scope!
-
       def validate
+        super
         validates_unique [:team_id, :tournament_participant_id]
+        errors.add(:name, 'tournament already started') if team.tournament_started?
+      end
+
+      def before_destroy
+        super
+        return false if team.tournament_started?
       end
 
       def country_name

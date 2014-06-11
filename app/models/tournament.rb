@@ -10,6 +10,11 @@ module Sweepstakes
         end
       end
 
+      def started?
+        # starts_at > Time.now.utc # WRONG but for testing
+        starts_at < Time.now.utc # CORRECT
+      end
+
       def as_json(options = nil)
         # user = (options || {})[:user]
         options ||= {}

@@ -23,8 +23,15 @@ app.controller('TeamsCtrl', ['$scope', 'Teams', function ($scope, Teams) {
     if (team.id) {
       Teams.update({id: team.id}, team);
     } else {
-      team.$save().then(function(response){
+      // team.$save().then(function(response){
+      //   console.log(response);
+      //   $scope.teams.push(response);
+      // });
+      team.$save(function success(response) {
         $scope.teams.push(response);
+      }, function error(response){
+        //  TODO Show message to user that Tournament has started
+        console.log(response);
       });
     }
     team.editing = false;
@@ -34,11 +41,12 @@ app.controller('TeamsCtrl', ['$scope', 'Teams', function ($scope, Teams) {
 
   $scope.deleteTeam = function(team) {
     // Delete from DB
-    Teams.delete({id: team.id});
-
-    // Update scope(and thus the view)
-    // TODO This should really only be done if the save on DB succeeded
-    _.remove($scope.teams, team);
+    Teams.delete({id: team.id}, function success (){
+      // Update scope(and thus the view)
+      _.remove($scope.teams, team);
+    }, function error(response){
+      console.log(response);
+    });
   };
 
   init();

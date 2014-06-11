@@ -6,7 +6,7 @@ module Sweepstakes
 
       dataset_module do
         def ordered
-          order(:kickoff.desc)
+          order(:kickoff.asc)
         end
       end
 
