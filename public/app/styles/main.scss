@@ -73,37 +73,34 @@ body {
     margin-top: 28px;
 }
 
+// Not sure why this is there, limits the width on big screens too much
 /* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-    .container {
-        max-width: 730px;
-    }
+// @media screen and (min-width: 768px) {
+//     .container {
+//         max-width: 730px;
+//     }
 
-    /* Remove the padding we set earlier */
-    .header,
-    .marketing,
-    .footer {
-        padding-left: 0;
-        padding-right: 0;
-    }
-    /* Space out the masthead */
-    .header {
-        margin-bottom: 30px;
-    }
-    /* Remove the bottom border on the jumbotron for visual effect */
-    .jumbotron {
-        border-bottom: 0;
-    }
-}
+//     /* Remove the padding we set earlier */
+//     .header,
+//     .marketing,
+//     .footer {
+//         padding-left: 0;
+//         padding-right: 0;
+//     }
+//     /* Space out the masthead */
+//     .header {
+//         margin-bottom: 30px;
+//     }
+//     /* Remove the bottom border on the jumbotron for visual effect */
+//     .jumbotron {
+//         border-bottom: 0;
+//     }
+// }
 
 
 
 
 // BELOW IS MY CSS
-html, body {
-  height: 100%; /* needed for container min-height */
-}
-
 
 // .view-animate {
 //   bottom: 0;
@@ -215,12 +212,18 @@ $brazil-flag-green: #009b3a;
 $brazil-flag-yellow: #fedf00;
 $brazil-flag-blue: #002776;
 
+html, body {
+  height: 100%; /* needed for container min-height */
+}
+
+$footer-height: 60px;
+
 .page-wrap {
   height:auto !important;
   height:100%;
   min-height:100%;
   background-repeat: no-repeat;
-  margin-bottom: -40px;
+  margin-bottom: -$footer-height;
 }
 
 .page-wrap:after {
@@ -230,7 +233,7 @@ $brazil-flag-blue: #002776;
 
 .app-footer, .page-wrap:after {
   /* .push must be the same height as footer */
-  height: 40px;
+  height: $footer-height;
   padding-left: 30px;
   padding-right: 30px;
 }
@@ -428,4 +431,13 @@ a {
   &.negative {
     color: red;
   }
+}
+
+td.number, th.number {
+  text-align: right;
+}
+
+.team-points {
+  font-size: 2em;
+  font-weight: bold;
 }

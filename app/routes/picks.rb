@@ -15,6 +15,7 @@ module Sweepstakes
         json pick
       end
 
+      # Create
       post '/teams/:team_id/picks', :auth => true do
         pick      = Pick.new
         pick.tenant = current_tenant
@@ -29,7 +30,6 @@ module Sweepstakes
         if current_user.admin?
           pick = Pick.first!(id: params[:id])
         else
-          # pick = Pick.first!(id: params[:id])
           pick = Pick.select_all(:picks).for_user(current_user).first!(picks__id: params[:id])
         end
 
@@ -43,6 +43,7 @@ module Sweepstakes
         json pick
       end
 
+      # Delete
       delete '/teams/:team_id/picks/:id', :auth => true do
         if current_user.admin?
           pick = Pick.first!(id: params[:id])

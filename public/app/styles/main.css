@@ -15856,40 +15856,7 @@ button.close {
 }
 
 /* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  /* line 78, main.scss */
-  .container {
-    max-width: 730px;
-  }
-
-  /* Remove the padding we set earlier */
-  /* line 85, main.scss */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  /* Space out the masthead */
-  /* line 90, main.scss */
-  .header {
-    margin-bottom: 30px;
-  }
-
-  /* Remove the bottom border on the jumbotron for visual effect */
-  /* line 94, main.scss */
-  .jumbotron {
-    border-bottom: 0;
-  }
-}
-/* line 103, main.scss */
-html, body {
-  height: 100%;
-  /* needed for container min-height */
-}
-
-/* line 116, main.scss */
+/* line 113, main.scss */
 .view-animate.ng-enter {
   -webkit-animation: fadeIn 0.25s 0.25s both ease-in;
   z-index: 8888;
@@ -15901,7 +15868,7 @@ html, body {
   z-index: 8888;
 }
 
-/* line 126, main.scss */
+/* line 123, main.scss */
 .view-animate.ng-leave {
   -webkit-animation: fadeOut 0.25s 0s both ease-in;
   z-index: 9999;
@@ -15918,28 +15885,28 @@ html, body {
 /* leaving animations ----------------------------------------- */
 /* rotate and fall */
 @keyframes rotateFall {
-  /* line 143, main.scss */
+  /* line 140, main.scss */
   0% {
     transform: rotateZ(0deg);
   }
 
-  /* line 144, main.scss */
+  /* line 141, main.scss */
   20% {
     transform: rotateZ(10deg);
     animation-timing-function: ease-out;
   }
 
-  /* line 145, main.scss */
+  /* line 142, main.scss */
   40% {
     transform: rotateZ(17deg);
   }
 
-  /* line 146, main.scss */
+  /* line 143, main.scss */
   60% {
     transform: rotateZ(16deg);
   }
 
-  /* line 147, main.scss */
+  /* line 144, main.scss */
   100% {
     transform: translateY(100%) rotateZ(17deg);
   }
@@ -15947,21 +15914,21 @@ html, body {
 
 /* slide in from the bottom */
 @keyframes slideOutLeft {
-  /* line 152, main.scss */
+  /* line 149, main.scss */
   to {
     transform: translateX(-100%);
   }
 }
 
 @-moz-keyframes slideOutLeft {
-  /* line 155, main.scss */
+  /* line 152, main.scss */
   to {
     transform: translateX(-100%);
   }
 }
 
 @-webkit-keyframes slideOutLeft {
-  /* line 158, main.scss */
+  /* line 155, main.scss */
   to {
     transform: translateX(-100%);
   }
@@ -15969,7 +15936,7 @@ html, body {
 
 /* rotate out newspaper */
 @keyframes rotateOutNewspaper {
-  /* line 163, main.scss */
+  /* line 160, main.scss */
   to {
     transform: translateZ(-3000px) rotateZ(360deg);
     opacity: 0;
@@ -15979,7 +15946,7 @@ html, body {
 /* entering animations --------------------------------------- */
 /* scale up */
 @keyframes scaleUp {
-  /* line 169, main.scss */
+  /* line 166, main.scss */
   from {
     opacity: 0.3;
     -webkit-transform: scale(0.8);
@@ -15987,7 +15954,7 @@ html, body {
 }
 
 @-moz-keyframes scaleUp {
-  /* line 172, main.scss */
+  /* line 169, main.scss */
   from {
     opacity: 0.3;
     -webkit-transform: scale(0.8);
@@ -15995,7 +15962,7 @@ html, body {
 }
 
 @-webkit-keyframes scaleUp {
-  /* line 175, main.scss */
+  /* line 172, main.scss */
   from {
     opacity: 0.3;
     -webkit-transform: scale(0.8);
@@ -16004,12 +15971,12 @@ html, body {
 
 /* slide in from the right */
 @keyframes slideInRight {
-  /* line 180, main.scss */
+  /* line 177, main.scss */
   from {
     transform: translateX(100%);
   }
 
-  /* line 181, main.scss */
+  /* line 178, main.scss */
   to {
     transform: translateX(0);
   }
@@ -16017,83 +15984,89 @@ html, body {
 
 /* slide in from the bottom */
 @keyframes slideInUp {
-  /* line 186, main.scss */
+  /* line 183, main.scss */
   from {
     transform: translateY(100%);
   }
 
-  /* line 187, main.scss */
+  /* line 184, main.scss */
   to {
     transform: translateY(0);
   }
 }
 
 @keyframes fadeIn {
-  /* line 191, main.scss */
+  /* line 188, main.scss */
   from {
     opacity: 0;
   }
 }
 
 @-moz-keyframes fadeIn {
-  /* line 194, main.scss */
+  /* line 191, main.scss */
   from {
     opacity: 0;
   }
 }
 
 @-webkit-keyframes fadeIn {
-  /* line 197, main.scss */
+  /* line 194, main.scss */
   from {
     opacity: 0;
   }
 }
 
 @keyframes fadeOut {
-  /* line 201, main.scss */
+  /* line 198, main.scss */
   to {
     opacity: 0;
   }
 }
 
 @-moz-keyframes fadeOut {
-  /* line 204, main.scss */
+  /* line 201, main.scss */
   to {
     opacity: 0;
   }
 }
 
 @-webkit-keyframes fadeOut {
-  /* line 207, main.scss */
+  /* line 204, main.scss */
   to {
     opacity: 0;
   }
 }
 
-/* line 218, main.scss */
+/* line 215, main.scss */
+html, body {
+  height: 100%;
+  /* needed for container min-height */
+}
+
+/* line 221, main.scss */
 .page-wrap {
   height: auto !important;
   height: 100%;
   min-height: 100%;
   background-repeat: no-repeat;
-  margin-bottom: -40px;
+  margin-bottom: -60px;
 }
 
-/* line 226, main.scss */
+/* line 229, main.scss */
 .page-wrap:after {
   content: "";
   display: block;
 }
 
-/* line 231, main.scss */
+/* line 234, main.scss */
 .app-footer, .page-wrap:after {
   /* .push must be the same height as footer */
-  height: 40px;
+  height: 60px;
   padding-left: 30px;
   padding-right: 30px;
 }
 
-/* line 238, main.scss */
+/* line 241, main.scss */
 .brazil-background-hgradient {
   background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #009b3a), color-stop(100%, #fedf00));
   background-image: -webkit-linear-gradient(left, #009b3a, #fedf00);
@@ -16102,7 +16075,7 @@ html, body {
   background-image: linear-gradient(left, #009b3a, #fedf00);
 }
 
-/* line 242, main.scss */
+/* line 245, main.scss */
 .brazil-background-vgradient {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #009b3a), color-stop(100%, #fedf00));
   background-image: -webkit-linear-gradient(#009b3a, #fedf00);
@@ -16111,12 +16084,12 @@ html, body {
   background-image: linear-gradient(#009b3a, #fedf00);
 }
 
-/* line 249, main.scss */
+/* line 252, main.scss */
 a {
   cursor: pointer;
 }
 
-/* line 253, main.scss */
+/* line 256, main.scss */
 .app-header {
   background: #002776;
   margin-bottom: 30px;
@@ -16127,39 +16100,39 @@ a {
   overflow: auto;
 }
 
-/* line 263, main.scss */
+/* line 266, main.scss */
 .app-title {
   float: left;
   color: #fff;
   font-size: 24px;
 }
-/* line 267, main.scss */
+/* line 270, main.scss */
 .app-title:hover {
   text-decoration: none;
   color: #e6e6e6;
 }
 
-/* line 273, main.scss */
+/* line 276, main.scss */
 .app-logo {
   width: 64px;
   height: 64px;
 }
 
-/* line 278, main.scss */
+/* line 281, main.scss */
 .app-menu {
   float: right;
 }
-/* line 280, main.scss */
+/* line 283, main.scss */
 .app-menu li {
   float: left;
   padding-right: 10px;
 }
-/* line 283, main.scss */
+/* line 286, main.scss */
 .app-menu li a.active {
   color: white;
 }
 
-/* line 289, main.scss */
+/* line 292, main.scss */
 .avatar-img {
   width: 50px;
   height: 50px;
@@ -16170,7 +16143,7 @@ a {
   border-radius: 50%;
 }
 
-/* line 296, main.scss */
+/* line 299, main.scss */
 .social-login {
   font-size: 3em;
   color: #fff;
@@ -16185,14 +16158,14 @@ a {
   border-radius: 50%;
   transition: all .25s;
 }
-/* line 305, main.scss */
+/* line 308, main.scss */
 .social-login:hover {
   text-decoration: none;
   color: #002776;
   background: #fff;
 }
 
-/* line 312, main.scss */
+/* line 315, main.scss */
 .content {
   background: #fff;
   padding: 1px 20px;
@@ -16204,20 +16177,20 @@ a {
   -webkit-box-shadow: 5px 5px 10px 0px;
   box-shadow: 5px 5px 10px 0px;
 }
-/* line 317, main.scss */
+/* line 320, main.scss */
 .content h1, .content h2 {
   text-align: center;
 }
 
-/* line 322, main.scss */
+/* line 325, main.scss */
 .standings-table {
   counter-reset: rowNumber;
 }
-/* line 329, main.scss */
+/* line 332, main.scss */
 .standings-table .standings-row {
   counter-increment: rowNumber;
 }
-/* line 331, main.scss */
+/* line 334, main.scss */
 .standings-table .standings-row > td:first-child::before {
   display: inline-block;
   content: counter(rowNumber);
@@ -16234,17 +16207,17 @@ a {
   background-color: #000;
   text-align: center;
 }
-/* line 344, main.scss */
+/* line 347, main.scss */
 .standings-table .picks {
   border-spacing: 5px;
   border-collapse: separate;
 }
-/* line 350, main.scss */
+/* line 353, main.scss */
 .standings-table .picks .flag-img {
   -webkit-box-shadow: 0px 2px 5px 0px;
   box-shadow: 0px 2px 5px 0px;
 }
-/* line 354, main.scss */
+/* line 357, main.scss */
 .standings-table .picks .country-code td {
   background: gray;
   color: white;
@@ -16258,14 +16231,14 @@ a {
   text-align: center;
 }
 
-/* line 366, main.scss */
+/* line 369, main.scss */
 .hiding-form {
   box-shadow: 0px 10px 10px -8px;
   z-index: 100;
   background: #fff;
 }
 
-/* line 372, main.scss */
+/* line 375, main.scss */
 .new-team {
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -16281,7 +16254,7 @@ a {
   transition-duration: 0.5s;
 }
 
-/* line 381, main.scss */
+/* line 384, main.scss */
 .hide-form {
   -webkit-transition-property: translateY;
   transition-property: translateY;
@@ -16289,7 +16262,7 @@ a {
   transition-duration: 0.5s;
 }
 
-/* line 386, main.scss */
+/* line 389, main.scss */
 .new-team--hidden {
   -webkit-transform: translateY(-55px);
   -moz-transform: translateY(-55px);
@@ -16298,32 +16271,32 @@ a {
   transform: translateY(-55px);
 }
 
-/* line 390, main.scss */
+/* line 393, main.scss */
 .new-team-form {
   margin-bottom: 20px;
 }
 
-/* line 394, main.scss */
+/* line 397, main.scss */
 .top-buffer {
   margin-top: 20px;
 }
 
-/* line 395, main.scss */
+/* line 398, main.scss */
 .bottom-buffer {
   margin-bottom: 20px;
 }
 
-/* line 396, main.scss */
+/* line 399, main.scss */
 .pull-in-left-double {
   margin-left: 40px;
 }
 
-/* line 397, main.scss */
+/* line 400, main.scss */
 .pull-in-right-double {
   margin-right: 40px;
 }
 
-/* line 399, main.scss */
+/* line 402, main.scss */
 .add-team-action {
   background: green;
   color: white;
@@ -16340,27 +16313,38 @@ a {
   transition-duration: 0.5s;
 }
 
-/* line 409, main.scss */
+/* line 412, main.scss */
 .delete-team-icon {
   margin-right: 30px;
 }
 
-/* line 417, main.scss */
+/* line 420, main.scss */
 .user-teams-list-item {
   overflow: auto;
   padding-bottom: 10px;
   cursor: pointer;
 }
 
-/* line 423, main.scss */
+/* line 426, main.scss */
 .team-action-link {
   font-size: 2em;
 }
-/* line 425, main.scss */
+/* line 428, main.scss */
 .team-action-link.positive {
   color: green;
 }
-/* line 428, main.scss */
+/* line 431, main.scss */
 .team-action-link.negative {
   color: red;
+}
+
+/* line 436, main.scss */
+td.number, th.number {
+  text-align: right;
+}
+
+/* line 440, main.scss */
+.team-points {
+  font-size: 2em;
+  font-weight: bold;
 }
