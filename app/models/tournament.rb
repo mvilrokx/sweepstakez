@@ -11,8 +11,7 @@ module Sweepstakes
       end
 
       def started?
-        # starts_at > Time.now.utc # WRONG but for testing
-        starts_at < Time.now.utc # CORRECT
+        starts_at < Time.now.utc
       end
 
       def as_json(options = nil)

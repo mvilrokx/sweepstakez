@@ -27,9 +27,6 @@ module Sweepstakes
       end
 
       get '/v1/users/current' do
-        puts "getting current user"
-        ap current_user
-
         error 404 unless current_user?
         json current_user
       end

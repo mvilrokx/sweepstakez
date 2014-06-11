@@ -11,7 +11,7 @@ module Sweepstakes
         end
 
         def for_user(user)
-          where(:user_id => user.id)
+          association_join(:team).where(:team__user_id => user.id)
         end
 
         def for_tenant(tenant)
@@ -22,12 +22,16 @@ module Sweepstakes
       def validate
         super
         validates_unique [:team_id, :tournament_participant_id]
-        errors.add(:name, 'tournament already started') if team.tournament_started?
+        errors.add(:tournament_participant_id, 'tournament already started') if team.tournament_started?
       end
 
       def before_destroy
         super
         return false if team.tournament_started?
+      end
+
+      def user
+        team && team.user
       end
 
       def country_name

@@ -5,7 +5,6 @@ module Sweepstakes
       # Query All
       get '/teams', :auth => true do
         json Team.for_user(current_user).for_tenant(current_tenant)
-        # json Team.for_user(current_user)
       end
 
       # Query one
@@ -20,17 +19,14 @@ module Sweepstakes
 
       # Create
       post '/teams', :auth => true do
-        team      = Team.new
-        team.user = current_user
-        team.tenant = current_tenant
-
+        team               = Team.new
+        team.user          = current_user
+        team.tenant        = current_tenant
         team.tournament_id = Tournament.active.first[:id]
-
         team.set_fields(params, [:name])
         # team.set_fields(params, [:name, :tournament_id])
 
         team.save
-
         json team
       end
 
@@ -41,8 +37,8 @@ module Sweepstakes
         else
           team = Team.for_user(current_user).for_tenant(current_tenant).first!(id: params[:id])
         end
-        team.update(name: params[:name])
 
+        team.update(name: params[:name])
         json team
       end
 
@@ -53,16 +49,10 @@ module Sweepstakes
         else
           team = Team.for_user(current_user).for_tenant(current_tenant).first!(id: params[:id])
         end
-        # team.delete
+
         team.destroy
         json team
       end
-
-      # get '/teams/:id/picks', :auth => true do
-      #   team = Team.first!(id: params[:id])
-      #   picks = team.picks_dataset
-      #   json picks
-      # end
 
     end
   end

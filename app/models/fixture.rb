@@ -26,19 +26,15 @@ module Sweepstakes
 
       def home_team_points
         if result
-          ap result
           points = calc_points(result[:home_score], result[:away_score])
         end
-        puts home_country_name + ': ' + points.to_s + ' points' if points
         points
       end
 
       def away_team_points
         if result
-          ap result
           points = calc_points(result[:away_score], result[:home_score])
         end
-        puts away_country_name + ': ' + points.to_s + ' points' if points
         points
       end
 
