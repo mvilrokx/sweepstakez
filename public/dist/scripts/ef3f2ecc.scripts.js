@@ -481,7 +481,7 @@ app.controller('PicksCtrl', ['$scope', '$routeParams', 'Picks', 'Teams', functio
 
   $scope.dropped = function(dragEl, dropEl) {
     /*jshint camelcase: false */
-
+    var swapped = false;
     // I need $apply in order for the view to update because drag/drop events are not natively detected up by Angular.
     $scope.$apply(function () {
       if (dragEl.classList.contains('group-list-item')) { // dragged from groups
@@ -495,13 +495,16 @@ app.controller('PicksCtrl', ['$scope', '$routeParams', 'Picks', 'Teams', functio
         if (dragEl.dataset.pickId) {
           Picks.update({id: dragEl.dataset.pickId, teamId: $routeParams.teamId, position: liIndex(dropEl)}, function success(){
             swapPicks(dragEl, dropEl);
+            swapped = true;
           }, function error(response){
             console.log(response);
           });
         }
         if (dropEl.dataset.pickId) {
           Picks.update({id: dropEl.dataset.pickId, teamId: $routeParams.teamId, position: liIndex(dragEl)}, function success(){
-            swapPicks(dragEl, dropEl);
+            if (!swapped) {
+              swapPicks(dragEl, dropEl);
+            };
           }, function error(response){
             console.log(response);
           });
