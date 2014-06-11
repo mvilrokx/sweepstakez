@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('TeamsCtrl', ['$scope', 'Teams', function ($scope, Teams) {
+app.controller('TeamsCtrl', ['$scope', '$location','Teams', function ($scope, $location, Teams) {
 
   $scope.team = new Teams();
 
@@ -29,6 +29,7 @@ app.controller('TeamsCtrl', ['$scope', 'Teams', function ($scope, Teams) {
       // });
       team.$save(function success(response) {
         $scope.teams.push(response);
+        $location.path('/myteams/' + response.id + '/mypicks');
       }, function error(response){
         //  TODO Show message to user that Tournament has started
         console.log(response);

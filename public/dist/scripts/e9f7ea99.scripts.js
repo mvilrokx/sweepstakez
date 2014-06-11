@@ -312,7 +312,7 @@ app.controller('TournamentsCtrl', ['$scope', 'Tournaments', function ($scope, To
 
 'use strict';
 
-app.controller('TeamsCtrl', ['$scope', 'Teams', function ($scope, Teams) {
+app.controller('TeamsCtrl', ['$scope', '$location','Teams', function ($scope, $location, Teams) {
 
   $scope.team = new Teams();
 
@@ -341,6 +341,7 @@ app.controller('TeamsCtrl', ['$scope', 'Teams', function ($scope, Teams) {
       // });
       team.$save(function success(response) {
         $scope.teams.push(response);
+        $location.path('/myteams/' + response.id + '/mypicks');
       }, function error(response){
         //  TODO Show message to user that Tournament has started
         console.log(response);
@@ -504,7 +505,7 @@ app.controller('PicksCtrl', ['$scope', '$routeParams', 'Picks', 'Teams', functio
           Picks.update({id: dropEl.dataset.pickId, teamId: $routeParams.teamId, position: liIndex(dragEl)}, function success(){
             if (!swapped) {
               swapPicks(dragEl, dropEl);
-            };
+            }
           }, function error(response){
             console.log(response);
           });

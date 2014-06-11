@@ -137,7 +137,7 @@ app.controller('PicksCtrl', ['$scope', '$routeParams', 'Picks', 'Teams', functio
           Picks.update({id: dropEl.dataset.pickId, teamId: $routeParams.teamId, position: liIndex(dragEl)}, function success(){
             if (!swapped) {
               swapPicks(dragEl, dropEl);
-            };
+            }
           }, function error(response){
             console.log(response);
           });
