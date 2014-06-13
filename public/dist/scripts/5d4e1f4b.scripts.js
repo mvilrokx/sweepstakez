@@ -25,6 +25,10 @@ app.config(function ($routeProvider) {
       templateUrl: 'views/userPicks.html',
       controller: 'PicksCtrl'
     })
+    .when('/fixtures', {
+      templateUrl: 'views/fixtures.html',
+      controller: 'FixturesCtrl'
+    })
     .otherwise({
       redirectTo: '/'
     });
@@ -47,6 +51,18 @@ app.service('groupsService', ['$resource', function($resource){
     return groups.get({tournament: tournament});
   };
 
+}]);
+
+'use strict';
+
+app.factory('Fixtures', ['$resource', function($resource){
+  var Fixtures = $resource('/fixtures/:id', {id: '@id'}, {
+    update: {
+      method: 'PUT'
+    }
+  });
+
+  return Fixtures;
 }]);
 
 'use strict';
@@ -147,6 +163,10 @@ app.service('sessionService', ['$http', '$q', function($http, $q){
 
   this.isAuthenticated = function() {
     return !!currentUser;
+  };
+
+  this.isAdmin = function() {
+    return currentUser.admin;
   };
 
 }]);
@@ -265,6 +285,45 @@ app.controller('GroupsCtrl', ['$scope', '$routeParams', '$location', 'groupsServ
 
 'use strict';
 
+app.controller('FixturesCtrl', ['$scope', 'Fixtures', 'sessionService', function ($scope, Fixtures, sessionService) {
+
+  $scope.fixtures = [];
+
+  function init() {
+    $scope.fixtures = Fixtures.query();
+  }
+
+
+  $scope.addFixture = function(fixture) {
+    if (fixture.id) {
+      // TODO: Needs callback I think
+      Fixtures.update({id: fixture.id}, fixture);
+    } else {
+      fixture.$save();
+    }
+    fixture.editing = false;
+  };
+
+
+  $scope.deleteFixture = function(fixture) {
+    fixture.$delete();
+  };
+
+
+  $scope.editFixture = function(fixture){
+    fixture.editing = true;
+  };
+
+  sessionService.getCurrentUser().then(function(session){
+    $scope.session = session;
+  });
+
+  init();
+
+}]);
+
+'use strict';
+
 app.controller('mySelectionsCtrl', ['$scope', '$routeParams', '$location', 'mySelectionService', function ($scope, $routeParams, $location, mySelectionService) {
 
   $scope.mySelections = [];
@@ -335,10 +394,6 @@ app.controller('TeamsCtrl', ['$scope', '$location','Teams', function ($scope, $l
     if (team.id) {
       Teams.update({id: team.id}, team);
     } else {
-      // team.$save().then(function(response){
-      //   console.log(response);
-      //   $scope.teams.push(response);
-      // });
       team.$save(function success(response) {
         $scope.teams.push(response);
         $location.path('/myteams/' + response.id + '/mypicks');

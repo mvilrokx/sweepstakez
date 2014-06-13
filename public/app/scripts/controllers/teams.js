@@ -23,10 +23,6 @@ app.controller('TeamsCtrl', ['$scope', '$location','Teams', function ($scope, $l
     if (team.id) {
       Teams.update({id: team.id}, team);
     } else {
-      // team.$save().then(function(response){
-      //   console.log(response);
-      //   $scope.teams.push(response);
-      // });
       team.$save(function success(response) {
         $scope.teams.push(response);
         $location.path('/myteams/' + response.id + '/mypicks');

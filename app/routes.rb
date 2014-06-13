@@ -6,5 +6,6 @@ module Sweepstakes
     autoload :Countries, 'app/routes/countries'
     autoload :Teams, 'app/routes/teams'
     autoload :Picks, 'app/routes/picks'
+    autoload :Fixtures, 'app/routes/fixtures'
   end
 end

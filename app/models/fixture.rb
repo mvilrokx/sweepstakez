@@ -16,6 +16,12 @@ module Sweepstakes
         result[:group_stage] = 'Y'
       end
 
+      # TODO: This is just an approximation,
+      #       overtime and penalty shootouts would make this wrong
+      def live?
+        Time.now.utc.between?(kickoff, kickoff + (90*60)+(15*60))
+      end
+
       def home_country_name
         home_team && home_team.country_name
       end
@@ -26,14 +32,14 @@ module Sweepstakes
 
       def home_team_points
         if result
-          points = calc_points(result[:home_score], result[:away_score])
+          points = calc_points(result[:home_score].to_i, result[:away_score].to_i)
         end
         points
       end
 
       def away_team_points
         if result
-          points = calc_points(result[:away_score], result[:home_score])
+          points = calc_points(result[:away_score].to_i, result[:home_score].to_i)
         end
         points
       end
@@ -45,6 +51,9 @@ module Sweepstakes
           home_team_points: home_team_points,
           away_team:        away_team,
           away_team_points: away_team_points,
+          venue:            venue,
+          kickoff:          kickoff,
+          live:             live?,
           result:           result
         }
       end

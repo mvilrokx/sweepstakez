@@ -56,6 +56,7 @@ module Sweepstakes
 
     use Sweepstakes::Routes::Users
     use Sweepstakes::Routes::Teams
+    use Sweepstakes::Routes::Fixtures
     use Sweepstakes::Routes::Picks
     use Sweepstakes::Routes::Countries
     use Sweepstakes::Routes::Tournaments

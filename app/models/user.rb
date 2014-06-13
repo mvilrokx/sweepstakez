@@ -25,7 +25,7 @@ module Sweepstakes
         end
       end
 
-      set_dataset(self.tenant) # default scope!
+      # set_dataset(self.tenant) # default scope!
 
 
       # one_to_many :posts, :on_delete => :cascade

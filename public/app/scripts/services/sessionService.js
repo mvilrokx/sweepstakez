@@ -24,4 +24,8 @@ app.service('sessionService', ['$http', '$q', function($http, $q){
     return !!currentUser;
   };
 
+  this.isAdmin = function() {
+    return currentUser.admin;
+  };
+
 }]);

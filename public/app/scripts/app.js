@@ -25,6 +25,10 @@ app.config(function ($routeProvider) {
       templateUrl: 'views/userPicks.html',
       controller: 'PicksCtrl'
     })
+    .when('/fixtures', {
+      templateUrl: 'views/fixtures.html',
+      controller: 'FixturesCtrl'
+    })
     .otherwise({
       redirectTo: '/'
     });
