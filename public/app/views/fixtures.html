@@ -14,14 +14,31 @@
 
           <form role="form">
             <div class="row">
-              <div class="col-xs-5">
+              <div class="col-xs-2">
                 <label class="" for="home-team-goals">Goals {{fixture.home_team.country_name}}</label>
                 <input type="text" class="form-control" id="home-team-goals" ng-model="fixture.result.home_score">
               </div>
-              <div class="col-xs-5">
+              <div class="col-xs-2">
                 <label class="" for="away-team-goals">Goals {{fixture.away_team.country_name}}</label>
                 <input type="text" class="form-control" id="away-team-goals" ng-model="fixture.result.away_score">
               </div>
+
+
+              <div class="col-xs-2" ng-show="fixture.result.group_stage=='N'">
+                <label class="" for="home-team-penalty">Penalty {{fixture.home_team.country_name}}</label>
+                <input type="text" class="form-control" id="home-team-penalty" ng-model="fixture.result.home_penalty">
+              </div>
+              <div class="col-xs-2" ng-show="fixture.result.group_stage=='N'">
+                <label class="" for="away-team-penalty">Penalty {{fixture.away_team.country_name}}</label>
+                <input type="text" class="form-control" id="away-team-penalty" ng-model="fixture.result.away_penalty">
+              </div>
+
+              <div class="col-xs-2">
+                <label class="" for="group-stage-checkbox">Group Stage?{{fixture.result.group_stage}}</label>
+                <input type="checkbox" class="form-control" id="group-stage-checkbox" ng-model="fixture.result.group_stage"ng-true-value="Y" ng-false-value="N">
+              </div>
+
+
               <div class="col-xs-1">
                 <a ng-click="addFixture(fixture)" class="team-action-link positive" title="save"><i class="fa fa-check"></i></a>
               </div>
@@ -30,13 +47,9 @@
               </div>
             </div>
           </form>
-
-
-
-          <!-- <button class="btn btn-primary btn-xs" ng-click="addFixture(fixture)" ng-if="session.admin">Cancel</button> -->
         </div>
         <div ng-if="!fixture.editing">
-          {{fixture.home_team.country_name}} {{fixture.result.home_score}} vs {{fixture.away_team.country_name}} {{fixture.result.away_score}} ({{fixture.kickoff| date: 'dd MMM yyyy - HH:mm'}})
+          {{fixture.home_team.country_name}} {{fixture.result.home_score}} vs {{fixture.away_team.country_name}} {{fixture.result.away_score}} ({{fixture.kickoff| date: 'dd MMM yyyy - HH:mm'}}) Group Stage = {{fixture.result.group_stage}}
           <button class="btn btn-primary btn-xs" ng-click="editFixture(fixture)" ng-if="session.admin">Edit</button>
         </div>
       </li>

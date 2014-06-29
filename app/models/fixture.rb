@@ -13,7 +13,7 @@ module Sweepstakes
       serialize_attributes :json, :result
 
       def group_stage?
-        result[:group_stage] = 'Y'
+        result[:group_stage] == 'Y'
       end
 
       # TODO: This is just an approximation,
@@ -66,9 +66,17 @@ module Sweepstakes
         if my_score > other_score
           points = points + 3
         end
-        # In the preliminary group stage, a draw earns 1 point for you.
-        if (my_score == other_score) && group_stage?
-          points = points + 1
+        # In the group stage, a draw earns 1 point for you.
+        if group_stage?
+          if my_score == other_score
+            points = points + 1
+          end
+        else # there are no draws in the elimination round
+          if my_score == other_score # so there must have been a penalty shootout
+            if result[:home_penalty].to_i > result[:away_penalty].to_i
+              points = points + 3
+            end
+          end
         end
         points
       end

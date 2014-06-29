@@ -3,47 +3,55 @@ kickoff|home|away|venue|tz
 13/06/2014 13:00|Mexico|Cameroon|Estádio das Dunas, Natal|-03:00
 17/06/2014 16:00|Brazil|Mexico|Estádio Castelão, Fortaleza|-03:00
 18/06/2014 18:00|Cameroon|Croatia|Arena Amazônia, Manaus|-04:00
-23/06/2014 17:00|Cameroon|Brazil|Brasília|-03:00
-23/06/2014 17:00|Croatia|Mexico|Recife|-03:00
+23/06/2014 17:00|Cameroon|Brazil|Estádio Nacional Mané Garrincha, Brasília|-03:00
+23/06/2014 17:00|Croatia|Mexico|Arena Pernambuco, Recife|-03:00
 13/06/2014 16:00|Spain|Netherlands|Arena Fonte Nova, Salvador|-03:00
 13/06/2014 18:00|Chile|Australia|Arena Pantanal, Cuiabá|-04:00
 18/06/2014 16:00|Spain|Chile|Estádio do Maracanã, Rio de Janeiro|-03:00
 18/06/2014 13:00|Australia|Netherlands|Estádio Beira-Rio, Porto Alegre|-03:00
-23/06/2014 13:00|Australia|Spain|Curitiba|-03:00
-23/06/2014 13:00|Netherlands|Chile|São Paulo|-03:00
+23/06/2014 13:00|Australia|Spain|Arena da Baixada, Curitiba|-03:00
+23/06/2014 13:00|Netherlands|Chile|Arena de São Paulo, São Paulo|-03:00
 14/06/2014 13:00|Colombia|Greece|Estádio Mineirão, Belo Horizonte|-03:00
 14/06/2014 22:00|Ivory Coast|Japan|Arena Pernambuco, Recife|-03:00
 19/06/2014 13:00|Colombia|Ivory Coast|Estádio Nacional Mané Garrincha, Brasília|-03:00
 19/06/2014 19:00|Japan|Greece|Estádio das Dunas, Natal|-03:00
-24/06/2014 16:00|Japan|Colombia|Cuiabá|-04:00
-24/06/2014 17:00|Ivory Coast|Greece|Fortaleza|-03:00
+24/06/2014 16:00|Japan|Colombia|Arena Pantanal, Cuiabá|-04:00
+24/06/2014 17:00|Ivory Coast|Greece|stádio Castelão, Fortaleza|-03:00
 14/06/2014 16:00|Uruguay|Costa Rica|Estádio Castelão, Fortaleza|-03:00
 14/06/2014 18:00|England|Italy|Arena Amazônia, Manaus|-04:00
 19/06/2014 16:00|Uruguay|England|Arena de São Paulo, São Paulo|-03:00
 20/06/2014 13:00|Italy|Costa Rica|Arena Pernambuco, Recife|-03:00
-24/06/2014 13:00|Italy|Uruguay|Natal|-03:00
-24/06/2014 13:00|Costa Rica|England|Belo Horizonte|-03:00
+24/06/2014 13:00|Italy|Uruguay|Estádio das Dunas, Natal|-03:00
+24/06/2014 13:00|Costa Rica|England|Estádio Mineirão, Belo Horizonte|-03:00
 15/06/2014 13:00|Switzerland|Ecuador|Estádio Nacional Mané Garrincha, Brasília|-03:00
 15/06/2014 16:00|France|Honduras|Estádio Beira-Rio, Porto Alegre|-03:00
 20/06/2014 16:00|Switzerland|France|Arena Fonte Nova, Salvador|-03:00
 20/06/2014 19:00|Honduras|Ecuador|Arena da Baixada, Curitiba|-03:00
-25/06/2014 16:00|Honduras|Switzerland|Manaus|-04:00
-25/06/2014 17:00|Ecuador|France|Rio de Janeiro|-03:00
+25/06/2014 16:00|Honduras|Switzerland|Arena Amazônia, Manaus|-04:00
+25/06/2014 17:00|Ecuador|France|Estádio do Maracanã, Rio de Janeiro|-03:00
 15/06/2014 19:00|Argentina|Bosnia and Herzegovina|Estádio do Maracanã, Rio de Janeiro|-03:00
 16/06/2014 16:00|Iran|Nigeria|Arena da Baixada, Curitiba|-03:00
 21/06/2014 13:00|Argentina|Iran|Estádio Mineirão, Belo Horizonte|-03:00
 21/06/2014 18:00|Nigeria|Bosnia and Herzegovina|Arena Pantanal, Cuiabá|-04:00
-25/06/2014 13:00|Nigeria|Argentina|Porto Alegre|-03:00
-25/06/2014 13:00|Bosnia and Herzegovina|Iran|Salvador|-03:00
+25/06/2014 13:00|Nigeria|Argentina|Estádio Beira-Rio, Porto Alegre|-03:00
+25/06/2014 13:00|Bosnia and Herzegovina|Iran|Arena Fonte Nova, Salvador|-03:00
 16/06/2014 13:00|Germany|Portugal|Arena Fonte Nova, Salvador|-03:00
 16/06/2014 19:00|Ghana|United States|Estádio das Dunas, Natal|-03:00
-21/06/2014 16:00|Germany|Ghana|Fortaleza|-03:00
-22/06/2014 18:00|United States|Portugal|Manaus|-04:00
-26/06/2014 13:00|United States|Germany|Recife|-03:00
-26/06/2014 13:00|Portugal|Ghana|Brasília|-03:00
+21/06/2014 16:00|Germany|Ghana|stádio Castelão, Fortaleza|-03:00
+22/06/2014 18:00|United States|Portugal|Arena Amazônia, Manaus|-04:00
+26/06/2014 13:00|United States|Germany|Arena Pernambuco, Recife|-03:00
+26/06/2014 13:00|Portugal|Ghana|Estádio Nacional Mané Garrincha, Brasília|-03:00
 17/06/2014 13:00|Belgium|Algeria|Estádio Mineirão, Belo Horizonte|-03:00
 17/06/2014 18:00|Russia|South Korea|Arena Pantanal, Cuiabá|-04:00
-22/06/2014 13:00|Belgium|Russia|Rio de Janeiro|-03:00
-22/06/2014 16:00|South Korea|Algeria|Porto Alegre|-03:00
-26/06/2014 17:00|South Korea|Belgium|São Paulo|-03:00
-26/06/2014 17:00|Algeria|Russia|Curitiba|-03:00
+22/06/2014 13:00|Belgium|Russia|Estádio do Maracanã, Rio de Janeiro|-03:00
+22/06/2014 16:00|South Korea|Algeria|Estádio Beira-Rio, Porto Alegre|-03:00
+26/06/2014 17:00|South Korea|Belgium|Arena de São Paulo, São Paulo|-03:00
+26/06/2014 17:00|Algeria|Russia|Arena da Baixada, Curitiba|-03:00
+28/06/2014 13:00|Brazil|Chile|Estádio Mineirão, Belo Horizonte|-03:00
+28/06/2014 17:00|Colombia|Uruguay|Estádio do Maracanã, Rio de Janeiro|-03:00
+29/06/2014 13:00|Netherlands|Mexico|Estádio Castelão, Fortaleza|-03:00
+29/06/2014 17:00|Costa Rica|Greece|Arena Pernambuco, Recife|-03:00
+30/06/2014 13:00|France|Nigeria|Estádio Nacional Mané Garrincha, Brasília|-03:00
+30/06/2014 17:00|Germany|Algeria|Estádio Beira-Rio, Porto Alegre|-03:00
+01/07/2014 13:00|Argentina|Switzerland|Arena de São Paulo, São Paulo|-03:00
+01/07/2014 17:00|Belgium|United States|Arena Fonte Nova, Salvador|-03:00
