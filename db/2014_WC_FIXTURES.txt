@@ -55,3 +55,7 @@ kickoff|home|away|venue|tz
 30/06/2014 17:00|Germany|Algeria|Estádio Beira-Rio, Porto Alegre|-03:00
 01/07/2014 13:00|Argentina|Switzerland|Arena de São Paulo, São Paulo|-03:00
 01/07/2014 17:00|Belgium|United States|Arena Fonte Nova, Salvador|-03:00
+04/07/2014 13:00|France|Germany|Estádio do Maracanã, Rio de Janeiro|-03:00
+04/07/2014 17:00|Brazil|Colombia|Estádio Castelão, Fortaleza|-03:00
+05/07/2014 13:00|Argentina|Belgium|Estádio Nacional Mané Garrincha, Brasília|-03:00
+05/07/2014 17:00|Netherlands|Costa Rica|Arena Fonte Nova, Salvador|-03:00
