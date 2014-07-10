@@ -32,14 +32,14 @@ module Sweepstakes
 
       def home_team_points
         if result
-          points = calc_points(result[:home_score].to_i, result[:away_score].to_i)
+          points = calc_points(result[:home_score].to_i, result[:away_score].to_i, result[:home_penalty].to_i, result[:away_penalty].to_i)
         end
         points
       end
 
       def away_team_points
         if result
-          points = calc_points(result[:away_score].to_i, result[:home_score].to_i)
+          points = calc_points(result[:away_score].to_i, result[:home_score].to_i, result[:away_penalty].to_i, result[:home_penalty].to_i)
         end
         points
       end
@@ -58,7 +58,7 @@ module Sweepstakes
         }
       end
 
-      def calc_points(my_score, other_score)
+      def calc_points(my_score, other_score, my_penalties, other_penalties)
         points = 0
         # Each time one of your teams scores a goal, they score 1 point for you.
         points = points + my_score
@@ -73,7 +73,7 @@ module Sweepstakes
           end
         else # there are no draws in the elimination round
           if my_score == other_score # so there must have been a penalty shootout
-            if result[:home_penalty].to_i > result[:away_penalty].to_i
+            if my_penalties > other_penalties
               points = points + 3
             end
           end
