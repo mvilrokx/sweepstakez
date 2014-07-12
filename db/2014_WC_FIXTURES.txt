@@ -61,3 +61,5 @@ kickoff|home|away|venue|tz
 05/07/2014 17:00|Netherlands|Costa Rica|Arena Fonte Nova, Salvador|-03:00
 08/07/2014 13:00|Brazil|Germany|Estádio Mineirão, Belo Horizonte|-03:00
 09/07/2014 13:00|Netherlands|Argentina|Arena de São Paulo, São Paulo|-03:00
+12/07/2014 13:00|Brazil|Netherlands|Estádio Nacional Mané Garrincha, Brasília|-03:00
+13/07/2014 12:00|Germany|Argentina|Estádio do Maracanã, Rio de Janeiro|-03:00
